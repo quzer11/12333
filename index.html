@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8a5c3">
+  <meta name="description" content="郭智淳的个人展示页。透明镜框、粉色外套，还有一点点夸张的主角排面。">
+  <title>郭智淳 · 主角登场</title>
+  <style>
+    :root{--ink:#29162f;--pink:#f8a5c3;--hot:#e64d8a;--white:#fff9fc;--yellow:#ffe685;--hype:.7;--star-turn:14deg;--photo-turn:5deg;--title-turn:-2deg;--shine:.5}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:95px}
+    body{margin:0;background:var(--white);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",sans-serif;overflow-x:hidden}
+    button,input,a{-webkit-tap-highlight-color:transparent}
+    button,input{font:inherit}
+    button,a{touch-action:manipulation}
+    a{color:inherit;text-decoration:none}
+    button{cursor:pointer}
+    button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #7859d9;outline-offset:6px}
+    button:disabled{cursor:default}
+    ::selection{background:var(--ink);color:var(--pink)}
+    .site-nav{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:25px;min-height:88px;padding:18px 5.5%;background:var(--white)}
+    .brand{display:flex;align-items:center;gap:11px;font-size:17px;font-weight:800;letter-spacing:.03em}
+    .brand-mark{display:inline-block;font-size:34px;line-height:1;color:var(--hot)}
+    .nav-links{display:flex;gap:34px;font-size:14px}
+    .nav-links a{padding:9px 0;position:relative}
+    .nav-links a::after{content:"";position:absolute;bottom:3px;left:0;width:100%;height:2px;background:var(--hot);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+    .nav-links a:hover::after{transform:scaleX(1)}
+    .motion-button{display:flex;gap:8px;align-items:center;border:1.5px solid #d5c4d3;border-radius:30px;background:none;padding:10px 16px;min-height:42px;color:var(--ink);font-size:12px}
+    .motion-dot{width:7px;height:7px;border-radius:50%;background:var(--hot)}
+    .motion-button[aria-pressed="true"] .motion-dot{background:#958494}
+    .hero{position:relative;background:var(--pink);isolation:isolate;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(#a1476b 1px,transparent 1px);background-size:17px 17px;opacity:.13;mask-image:linear-gradient(to right,black,transparent 55%,black)}
+    .hero-inner{position:relative;max-width:1440px;min-height:760px;margin:auto;padding:88px 6% 82px;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:36px}
+    .hero-copy{position:relative;z-index:4;padding-bottom:20px}
+    .intro{margin:0 0 22px;font-size:17px;display:flex;gap:12px;align-items:center}
+    .intro::before{content:"";width:28px;height:2px;background:var(--ink)}
+    h1{font-size:clamp(80px,10.4vw,156px);line-height:1.06;font-weight:900;letter-spacing:-.075em;white-space:nowrap;margin:0 0 16px -7px;transform:rotate(var(--title-turn));transform-origin:15% 70%;transition:transform .35s ease;text-shadow:4px 5px 0 #fff9fc66}
+    .hero-tagline{margin:0;font-size:clamp(27px,3.2vw,47px);font-weight:850;letter-spacing:.035em}
+    .hero-description{max-width:360px;margin:24px 0 32px;font-size:15px;line-height:1.9;letter-spacing:.02em}
+    .launch{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:14px;border:2px solid var(--ink);border-radius:9px;background:var(--ink);color:white;min-height:61px;padding:17px 25px;font-size:16px;font-weight:700;box-shadow:5px 5px 0 #fff9fc;transition:transform .18s,box-shadow .18s}
+    .launch:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #fff9fc}
+    .launch:active{transform:translate(3px,3px);box-shadow:1px 1px 0 #fff9fc}
+    .launch-spark{font-size:25px;font-weight:400;line-height:1;color:var(--yellow)}
+    .hype-control{width:min(310px,100%);margin-top:38px}
+    .hype-label{display:flex;justify-content:space-between;align-items:center;font-size:12px;gap:12px;margin-bottom:13px}
+    .hype-label output{font-weight:750}
+    .hype-control input{display:block;width:100%;height:20px;margin:0;accent-color:var(--ink);cursor:pointer}
+    .range-ends{display:flex;justify-content:space-between;font-size:10px;margin-top:5px;color:#724557}
+    .portrait-stage{position:relative;z-index:3;min-width:0;perspective:1000px;max-width:470px;justify-self:center;width:100%;padding:15px 8px 20px}
+    .photo-halo{position:absolute;inset:6% -15% 0;border:2px solid #fff9fc8a;border-radius:50%;transform:rotate(-17deg);z-index:-1}
+    .photo-halo::after{content:"";position:absolute;inset:15px -12px;border:1px solid #fff9fc75;border-radius:50%;transform:rotate(29deg)}
+    .photo-card{position:relative;padding:13px 13px 55px;background:var(--white);border:2px solid var(--ink);box-shadow:13px 14px 0 var(--ink);transform:rotate(var(--photo-turn));transition:transform .35s ease;will-change:transform}
+    .portrait-window{aspect-ratio:3/3.8;overflow:hidden;position:relative;background:#eadfe1;border:1.5px solid var(--ink)}
+    .portrait-window img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 16%;transform:scale(1.12);transform-origin:50% 22%}
+    .portrait-window::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,#ffffff88 48%,transparent 60%);transform:translateX(-130%);pointer-events:none}
+    .photo-caption{position:absolute;left:19px;right:19px;bottom:16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;letter-spacing:.06em}
+    .photo-caption b{font-weight:800;font-size:15px}
+    .photo-caption span:last-child{color:#8d7383;font-size:10px}
+    .sticker{position:absolute;z-index:5;display:grid;place-items:center;text-align:center;pointer-events:none}
+    .star-sticker{width:124px;height:124px;right:-39px;top:-19px;color:var(--ink);background:var(--yellow);clip-path:polygon(50% 0%,60% 19%,78% 7%,79% 29%,100% 29%,88% 48%,100% 65%,78% 69%,78% 92%,59% 81%,48% 100%,40% 79%,19% 91%,20% 69%,0% 64%,13% 47%,0% 30%,22% 29%,21% 7%,40% 18%);transform:rotate(var(--star-turn));transition:transform .35s}
+    .star-sticker span{font-size:17px;font-weight:900;line-height:1.35}
+    .name-sticker{left:-41px;bottom:108px;padding:13px 21px;border:2px solid var(--ink);border-radius:4px;background:#fce9f1;transform:rotate(-9deg);font-size:14px;box-shadow:4px 4px 0 var(--ink)}
+    .name-sticker strong{font-size:18px}
+    .mini-star{position:absolute;font-size:67px;line-height:1;pointer-events:none;color:var(--white);text-shadow:2px 2px var(--ink)}
+    .mini-star.one{right:43%;top:34px;transform:rotate(13deg)}
+    .mini-star.two{right:2.8%;bottom:65px;color:var(--yellow);font-size:45px;transform:rotate(-12deg)}
+    .backdrop-word{position:absolute;right:6%;bottom:8px;font-size:92px;font-weight:900;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px #92446255;z-index:-1;white-space:nowrap}
+    .beam{position:absolute;top:-120px;left:0;width:45%;height:125%;background:linear-gradient(180deg,#fff5d8a0,transparent 78%);clip-path:polygon(44% 0,57% 0,100% 100%,0 100%);opacity:calc(var(--shine) * .33);transform:rotate(-28deg);transform-origin:top;pointer-events:none;z-index:1}
+    .beam.right{left:auto;right:0;transform:rotate(28deg)}
+    .ticker-shell{overflow:hidden;padding-top:12px;margin-top:-12px;position:relative;z-index:5}.ticker{overflow:hidden;background:var(--ink);color:var(--white);padding:17px 0;transform:rotate(-1.2deg) scale(1.02);margin-top:-9px;position:relative;z-index:5;user-select:none}
+    .ticker-track{display:flex;width:max-content;animation:marquee 27s linear infinite}
+    .ticker-group{display:flex;align-items:center;flex-shrink:0;gap:42px;padding-right:42px;white-space:nowrap;font-size:17px;font-weight:700;letter-spacing:.1em}
+    .ticker-star{color:var(--pink);font-size:23px}
+    .details{max-width:1220px;margin:auto;padding:99px 44px 90px;scroll-margin-top:30px}
+    .section-intro{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:38px}
+    .section-intro h2{font-size:clamp(28px,4vw,45px);line-height:1.25;margin:0;letter-spacing:-.03em}
+    .section-intro p{max-width:310px;margin:0;font-size:14px;line-height:1.8;color:#7b6377}
+    .look-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+    .look-item{padding:32px 30px 35px;min-width:0}
+    .look-item:first-child{padding-left:0}
+    .look-item:last-child{padding-right:0}
+    .look-item+.look-item{border-left:1px solid #daceD9}
+    .detail-art{height:135px;width:100%;display:block;margin-bottom:21px;overflow:visible}
+    .look-item h3{font-size:20px;margin:0 0 10px;font-weight:850}
+    .look-item p{font-size:13px;line-height:1.9;color:#765e72;margin:0;max-width:260px}
+    .finale{background:#eee6f2;position:relative;overflow:hidden;padding:73px 28px;text-align:center;scroll-margin-top:0}
+    .finale::before,.finale::after{content:"✦";position:absolute;color:#cfbddc;font-size:170px;line-height:1;top:75px;pointer-events:none}
+    .finale::before{left:4%;transform:rotate(15deg)}
+    .finale::after{right:4%;transform:rotate(-15deg)}
+    .finale p{position:relative;z-index:1;margin:0 0 22px;font-size:13px;color:#756080;letter-spacing:.08em}
+    .finale h2{position:relative;z-index:1;margin:0;font-size:clamp(27px,3.8vw,48px);line-height:1.55;font-weight:850;letter-spacing:-.03em}
+    .finale a{position:relative;z-index:1;display:inline-block;border-bottom:1px solid var(--ink);padding-bottom:5px;margin-top:30px;font-size:13px}
+    .footer{max-width:1220px;margin:auto;padding:25px 44px;display:flex;gap:20px;justify-content:space-between;align-items:center;font-size:11px;color:#867183}
+    .footer strong{font-size:13px;color:var(--ink)}
+    .toast{position:fixed;bottom:25px;left:50%;z-index:100;max-width:calc(100vw - 32px);padding:13px 22px;background:var(--ink);color:var(--white);border:2px solid white;border-radius:9px;box-shadow:4px 4px 0 var(--pink);font-size:14px;text-align:center;transform:translate(-50%,30px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:normal}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .confetti-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:90}
+    .confetti-piece{position:absolute;left:50%;top:52%;width:var(--w);height:var(--h);background:var(--color);border-radius:1px;animation:confetti var(--duration) cubic-bezier(.1,.5,.25,1) forwards;animation-delay:var(--delay);opacity:0}
+    .confetti-piece.star{background:var(--color);width:15px;height:15px;clip-path:polygon(50% 0,62% 35%,100% 50%,62% 62%,50% 100%,36% 62%,0 50%,36% 35%)}
+    .celebrating h1{animation:name-pop .75s cubic-bezier(.15,.8,.2,1)}
+    .celebrating .photo-card{animation:photo-pop .9s cubic-bezier(.15,.8,.2,1)}
+    .celebrating .portrait-window::after{animation:shine 1.3s .2s ease-in-out}
+    .celebrating .beam{animation:spotlight 1.7s ease-in-out}
+    .celebrating .beam.right{animation-direction:reverse}
+    .celebrating .star-sticker{animation:sticker-pop .9s cubic-bezier(.2,.8,.2,1)}
+    .effects-paused *, .effects-paused *::before, .effects-paused *::after{animation:none!important;transition:none!important}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+    @keyframes marquee{to{transform:translateX(-50%)}}
+    @keyframes name-pop{0%,100%{transform:rotate(var(--title-turn)) scale(1)}45%{transform:rotate(-5deg) scale(1.07)}}
+    @keyframes photo-pop{0%,100%{transform:rotate(var(--photo-turn))}40%{transform:rotate(-3deg) translateY(-15px) scale(1.025)}}
+    @keyframes sticker-pop{0%,100%{transform:rotate(var(--star-turn)) scale(1)}45%{transform:rotate(-12deg) scale(1.25)}}
+    @keyframes shine{to{transform:translateX(140%)}}
+    @keyframes spotlight{0%,100%{opacity:.2}50%{opacity:.85;transform:rotate(8deg)}}
+    @keyframes confetti{0%{opacity:0;transform:translate(0,0) rotate(0)}8%{opacity:1}72%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(var(--spin))}}
+    @media(min-width:1500px){.hero-inner{min-height:800px}}
+    @media(max-width:1050px){.hero-inner{padding:72px 5% 70px;gap:25px;min-height:650px}.portrait-stage{max-width:380px}.star-sticker{width:100px;height:100px;right:-12px;top:-18px}.star-sticker span{font-size:14px}.name-sticker{left:-13px;bottom:92px;font-size:12px}.name-sticker strong{font-size:15px}.hero-description{font-size:14px}.hero-copy{padding-bottom:0}.hero-tagline{font-size:31px}.backdrop-word{font-size:66px}.mini-star.one{right:45%;font-size:44px}.section-intro p{max-width:280px}}
+    @media(max-width:760px){
+      html{scroll-padding-top:20px}.site-nav{min-height:73px;padding:15px 22px;gap:12px}.brand{font-size:15px;gap:7px}.brand-mark{font-size:27px}.nav-links{display:none}.motion-button{font-size:11px;padding:9px 12px;min-height:40px}
+      .hero-inner{grid-template-columns:1fr;padding:45px 27px 60px;gap:37px;min-height:0}.hero-copy{max-width:500px;width:100%;justify-self:center}.intro{font-size:14px;margin-bottom:18px}h1{font-size:clamp(78px,19.7vw,132px);margin-left:-3px;margin-bottom:11px}.hero-tagline{font-size:clamp(25px,6.6vw,37px)}.hero-description{margin:18px 0 25px;max-width:330px;font-size:13px}.launch{min-height:55px;padding:14px 20px;font-size:14px}.hype-control{margin-top:27px;width:min(330px,100%)}.hype-label{font-size:11px;margin-bottom:9px}.range-ends{font-size:10px}
+      .portrait-stage{width:calc(100% - 24px);max-width:360px;padding:10px 8px 15px;margin:8px auto 0}.photo-card{box-shadow:9px 10px 0 var(--ink);padding:10px 10px 48px}.portrait-window{aspect-ratio:3/3.55}.photo-caption{bottom:14px;font-size:11px;left:16px;right:16px}.photo-caption b{font-size:13px}.photo-caption span:last-child{font-size:9px}.star-sticker{width:105px;height:105px;right:-20px;top:-19px}.name-sticker{bottom:88px;left:-20px}.mini-star.one{top:112px;right:7%;font-size:46px}.mini-star.two{bottom:19px;right:6%}.backdrop-word{bottom:5px;right:9%;font-size:60px}.beam{width:80%;opacity:.15}.ticker{padding:13px 0}.ticker-group{font-size:13px;gap:25px;padding-right:25px}.ticker-star{font-size:19px}
+      .details{padding:58px 25px 55px}.section-intro{display:block;margin-bottom:26px}.section-intro p{max-width:100%;margin-top:15px;font-size:13px}.look-grid{grid-template-columns:1fr}.look-item,.look-item:first-child,.look-item:last-child{padding:25px 0;display:grid;grid-template-columns:105px 1fr;gap:20px;align-items:center}.look-item+.look-item{border-left:0;border-top:1px solid #daced9}.detail-art{height:90px;margin:0}.look-item h3{font-size:18px;margin-bottom:8px}.look-item p{font-size:12px;max-width:100%}.finale{padding:50px 22px}.finale::before,.finale::after{font-size:95px;top:50px;opacity:.65}.finale::before{left:-30px}.finale::after{right:-30px}.finale h2{font-size:clamp(23px,6vw,34px)}.finale-line{display:block}.finale p{font-size:11px;margin-bottom:15px}.footer{padding:23px 24px;font-size:10px;gap:15px}.footer strong{font-size:11px}.toast{font-size:12px;bottom:19px;padding:12px 17px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+    /* The poster gallery and full-screen entrance are self-contained. */
+    body.modal-open{overflow:hidden}
+    .gallery{padding:88px max(25px,calc((100vw - 1132px)/2)) 95px;background:#f6edf5;scroll-margin-top:25px}
+    .gallery .section-intro{max-width:1132px;margin:0 auto 38px}
+    .gallery-note{display:block;font-size:11px;letter-spacing:.06em;margin-top:10px;color:#8b6f87}
+    .poster-grid{max-width:1132px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+    .poster-card{margin:0;min-width:0}
+    .poster-button{display:block;width:100%;padding:9px;border:2px solid var(--ink);background:var(--white);box-shadow:6px 7px 0 #d9c7dd;transition:transform .2s,box-shadow .2s}
+    .poster-button:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:9px 12px 0 #d9c7dd}
+    .poster-button img{display:block;width:100%;aspect-ratio:2/3;object-fit:contain;background:#211a2c}
+    .poster-info{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0 0}
+    .poster-info h3{font-size:19px;margin:0;font-weight:850}
+    .poster-info a{font-size:12px;border-bottom:1px solid #a98a9d;padding:10px 0;white-space:nowrap}
+    .poster-caption{font-size:12px;color:#7e6376;margin:7px 0 0;line-height:1.7}
+    .entrance-dialog{position:fixed;inset:0;width:100%;height:100%;height:100dvh;max-width:none;max-height:none;padding:0;border:0;margin:0;background:#1e1029;color:var(--white);overflow:hidden;isolation:isolate}
+    .entrance-dialog::backdrop{background:#1e1029}
+    .entrance-dialog[open]{display:block}
+    .entrance-controls{position:absolute;z-index:20;right:max(22px,env(safe-area-inset-right));top:max(22px,env(safe-area-inset-top));display:flex;align-items:center;gap:12px}
+    .entrance-controls span{font-size:11px;color:#dfc4df}
+    .skip-entrance{padding:10px 19px;min-height:44px;border:1px solid #cfafcc;background:#39233f;color:var(--white);border-radius:30px;font:inherit;font-size:13px}
+    .entrance-floor{position:absolute;width:150vmax;height:150vmax;left:50%;top:60%;transform:translateX(-50%) rotateX(71deg);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 8%,#f39bc538 8.1% 8.3%,transparent 8.4% 14%);opacity:.5}
+    .entrance-beam{position:absolute;top:-10%;left:5%;width:57%;height:130%;background:linear-gradient(180deg,#f8a5c3c9,transparent 83%);clip-path:polygon(47% 0,53% 0,100% 100%,0 100%);transform:rotate(-33deg);transform-origin:top center;opacity:0;mix-blend-mode:screen;pointer-events:none}
+    .entrance-beam.right{left:auto;right:5%;background:linear-gradient(180deg,#fff0a5bf,transparent 83%);transform:rotate(33deg)}
+    .entrance-rings{position:absolute;left:50%;top:45%;width:min(78vw,720px);aspect-ratio:1;border:1px solid #f2b8df70;border-radius:50%;transform:translate(-50%,-50%) scale(.7);opacity:0}
+    .entrance-rings::before,.entrance-rings::after{content:"";position:absolute;inset:7%;border:1px solid #f2b8df4a;border-radius:50%}
+    .entrance-rings::after{inset:-8%;border-color:#f2b8df30}
+    .entrance-orbit{position:absolute;inset:13% 12% 18%;border:1px solid #d9c1e766;border-radius:50%;transform:rotate(-21deg);opacity:.3}
+    .entrance-poster{position:absolute;top:50%;left:50%;height:72%;height:72dvh;max-height:680px;width:min(68vw,470px);margin:0;transform:translate(-50%,-47%) scale(.7) rotate(-8deg);opacity:0;filter:drop-shadow(0 0 35px #ff74b36b);z-index:2}
+    .entrance-poster img{width:100%;height:100%;object-fit:contain;display:block}
+    .entrance-kicker{position:absolute;top:13%;left:0;width:100%;text-align:center;font-size:clamp(15px,2.1vw,25px);letter-spacing:.35em;font-weight:600;z-index:4;opacity:0;color:#ffe685;text-shadow:0 2px 12px #1e1029}
+    .entrance-name{position:absolute;left:0;bottom:9%;width:100%;margin:0;text-align:center;font-size:clamp(76px,18vw,250px);line-height:1;font-weight:950;letter-spacing:-.07em;white-space:nowrap;z-index:5;opacity:0;transform:translateY(90px) rotate(-7deg);color:#fff0f8;text-shadow:6px 7px 0 #e64d8a,12px 13px 0 #29162f}
+    .entrance-subtitle{position:absolute;left:0;bottom:5%;width:100%;margin:0;text-align:center;font-size:clamp(12px,1.4vw,18px);letter-spacing:.3em;font-weight:700;z-index:5;opacity:0;color:#f6bfd9}
+    .entrance-curtain{position:absolute;top:0;bottom:0;width:50.5%;z-index:10;background:repeating-linear-gradient(90deg,#35112b 0,#7a2855 8%,#54203f 15%,#35112b 21%);border-bottom:12px solid #cba460;box-shadow:8px 0 25px #120b1d80}
+    .entrance-curtain.left{left:0;border-right:2px solid #d9b777}
+    .entrance-curtain.right{right:0;border-left:2px solid #d9b777}
+    .entrance-curtain::after{content:"";position:absolute;bottom:27px;left:0;width:100%;height:2px;background:#d1b16c}
+    .entrance-seal{position:absolute;z-index:11;left:50%;top:49%;transform:translate(-50%,-50%);border:1px solid #d7b26b;padding:19px 23px;color:#ffe685;background:#4a1834;text-align:center;line-height:1.6;font-size:16px;letter-spacing:.2em;box-shadow:0 0 0 8px #4a1834,0 0 0 9px #d7b26b;white-space:nowrap}
+    .entrance-seal b{display:block;font-size:27px;letter-spacing:.03em}
+    .entrance-particles{position:absolute;inset:0;z-index:6;overflow:hidden;pointer-events:none}
+    .entrance-particles .confetti-piece{top:46%}
+    .entrance-timer{position:absolute;bottom:0;left:0;height:4px;width:100%;background:var(--pink);transform-origin:left;z-index:20}
+    .entrance-dialog.is-playing .entrance-curtain.left{animation:curtain-left 1.15s .3s cubic-bezier(.7,0,.2,1) both}
+    .entrance-dialog.is-playing .entrance-curtain.right{animation:curtain-right 1.15s .3s cubic-bezier(.7,0,.2,1) both}
+    .entrance-dialog.is-playing .entrance-seal{animation:seal-out .6s .35s ease-in forwards}
+    .entrance-dialog.is-playing .entrance-beam{animation:beam-sweep 3.3s .55s ease-in-out both}
+    .entrance-dialog.is-playing .entrance-beam.right{animation-name:beam-sweep-right}
+    .entrance-dialog.is-playing .entrance-rings{animation:ring-reveal 2.8s .75s ease-out both}
+    .entrance-dialog.is-playing .entrance-poster{animation:poster-entrance 1.2s .75s cubic-bezier(.16,1,.3,1) both}
+    .entrance-dialog.is-playing .entrance-kicker{animation:stage-fade 1s 1s ease both}
+    .entrance-dialog.is-playing .entrance-name{animation:stage-name 1s 1.5s cubic-bezier(.16,1,.3,1) both}
+    .entrance-dialog.is-playing .entrance-subtitle{animation:stage-fade .7s 2.2s ease both}
+    .entrance-dialog.is-playing .entrance-timer{animation:stage-progress 4.3s linear both}
+    .entrance-dialog.is-leaving{opacity:0;transition:opacity .25s ease}
+    .poster-dialog{position:fixed;inset:0;width:min(1100px,calc(100vw - 32px));max-width:none;height:min(90dvh,1100px);max-height:none;margin:auto;padding:0;border:1px solid #d8c4db;border-radius:12px;background:#24172d;color:var(--white);overflow:hidden}
+    .poster-dialog::backdrop{background:#140a1ee8;backdrop-filter:blur(8px)}
+    .poster-dialog[open]{display:flex;flex-direction:column}
+    .poster-dialog-header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 20px;flex:0 0 auto;border-bottom:1px solid #ffffff26}
+    .poster-dialog-header h2{font-size:18px;margin:0}
+    .poster-dialog-close{min-height:42px;border:1px solid #b69fbd;border-radius:24px;padding:8px 18px;background:transparent;color:var(--white);font-size:13px}
+    .poster-dialog-image{display:block;min-height:0;flex:1 1 0;object-fit:contain;width:100%;padding:12px}
+    .poster-dialog-footer{display:flex;gap:15px;align-items:center;justify-content:space-between;padding:12px 20px 17px;font-size:12px;color:#d9c0df;flex:0 0 auto}
+    .poster-dialog-footer a{border-bottom:1px solid #d9c0df;padding:6px 0;color:white}
+    @keyframes curtain-left{to{transform:translateX(-105%)}}
+    @keyframes curtain-right{to{transform:translateX(105%)}}
+    @keyframes seal-out{to{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}
+    @keyframes beam-sweep{0%{opacity:0;transform:rotate(-35deg)}35%{opacity:.65}100%{opacity:.6;transform:rotate(12deg)}}
+    @keyframes beam-sweep-right{0%{opacity:0;transform:rotate(35deg)}35%{opacity:.7}100%{opacity:.6;transform:rotate(-12deg)}}
+    @keyframes ring-reveal{to{opacity:.85;transform:translate(-50%,-50%) scale(1.1) rotate(40deg)}}
+    @keyframes poster-entrance{to{opacity:1;transform:translate(-50%,-47%) scale(1) rotate(3deg)}}
+    @keyframes stage-name{to{opacity:1;transform:translateY(0) rotate(-5deg)}}
+    @keyframes stage-fade{to{opacity:1}}
+    @keyframes stage-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media(max-width:1050px){.nav-links{gap:23px}.gallery{padding:65px 5% 75px}.poster-grid{gap:20px}.poster-info h3{font-size:17px}}
+    @media(max-width:760px){.gallery{padding:58px 25px 60px}.gallery .section-intro{margin-bottom:28px}.poster-grid{grid-template-columns:1fr;gap:35px;max-width:390px}.poster-info{padding-top:15px}.poster-info h3{font-size:20px}.poster-caption{margin-top:3px}.poster-button{padding:8px}.entrance-controls{top:15px;right:15px}.entrance-controls span{display:none}.entrance-poster{height:65dvh;width:86vw;top:45%}.entrance-name{font-size:clamp(75px,23vw,155px);bottom:13%;text-shadow:3px 4px 0 #e64d8a,6px 7px 0 #29162f}.entrance-subtitle{bottom:8%;font-size:12px;letter-spacing:.16em}.entrance-kicker{top:12%;font-size:13px;letter-spacing:.15em}.entrance-rings{width:98vw;top:42%}.entrance-seal{font-size:13px;padding:16px 19px}.entrance-seal b{font-size:24px}.poster-dialog{width:calc(100vw - 20px);height:92dvh}.poster-dialog-header{padding:12px 13px;gap:10px}.poster-dialog-header h2{font-size:16px}.poster-dialog-footer{padding:10px 14px 15px;font-size:11px}.poster-dialog-image{padding:7px}}
+    @media(prefers-reduced-motion:reduce){.entrance-dialog.is-playing *{animation:none!important}.poster-button{transition:none}.entrance-dialog.is-leaving{transition:none}}
+
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <a href="#hero" class="brand" aria-label="郭智淳，返回首页"><span class="brand-mark" aria-hidden="true">✳</span>郭智淳的高光时刻</a>
+    <nav class="nav-links" aria-label="页面导航"><a href="#hero">主角</a><a href="#gallery">海报</a><a href="#look">造型</a><a href="#finale">谢幕</a></nav>
+    <button class="motion-button" id="motion-toggle" type="button" aria-pressed="false"><span class="motion-dot" aria-hidden="true"></span><span id="motion-label">暂停特效</span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="beam" aria-hidden="true"></div><div class="beam right" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="intro">今天，这个页面只为他亮灯。</p>
+          <h1 id="hero-title">郭智淳</h1>
+          <p class="hero-tagline">主角模式，已开启。</p>
+          <p class="hero-description">透明镜框，粉色外套。<br>照片负责记录，整个舞台负责为你开场。</p>
+          <button class="launch" id="launch" type="button"><span class="launch-spark" aria-hidden="true">✦</span><span id="launch-label">开启郭智淳的超燃出场</span></button>
+          <div class="hype-control">
+            <label class="hype-label" for="hype"><span>排面调节器</span><output id="hype-value" for="hype">主角登场 · 70%</output></label>
+            <input id="hype" type="range" min="0" max="100" step="1" value="70" aria-valuetext="主角登场，百分之七十">
+            <div class="range-ends" aria-hidden="true"><span>低调一点</span><span>再夸张亿点</span></div>
+          </div>
+        </div>
+
+        <div class="portrait-stage" id="portrait-stage">
+          <div class="photo-halo" aria-hidden="true"></div>
+          <figure class="photo-card" id="photo-card" style="margin:0">
+            <div class="portrait-window"><img src="assets/portrait.jpg" width="960" height="2082" alt="郭智淳的照片：透明镜框、粉色外套与黑色内搭。" fetchpriority="high"></div>
+            <figcaption class="photo-caption"><b>郭智淳</b><span>镜头里的这一刻</span></figcaption>
+          </figure>
+          <div class="sticker star-sticker" aria-hidden="true"><span>今日<br>主角</span></div>
+          <div class="sticker name-sticker" aria-hidden="true">这次，<strong>自带高光。</strong></div>
+        </div>
+        <span class="mini-star one" aria-hidden="true">✦</span><span class="mini-star two" aria-hidden="true">✦</span>
+        <div class="backdrop-word" aria-hidden="true">出场即高光</div>
+      </div>
+    </section>
+
+    <div class="ticker-shell"><div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-group"><span>郭智淳，登场！</span><span class="ticker-star">✦</span><span>今天的镜头有了主角</span><span class="ticker-star">✦</span><span>粉色不是配角</span><span class="ticker-star">✦</span><span>排面，安排上了</span><span class="ticker-star">✦</span></div><div class="ticker-group"><span>郭智淳，登场！</span><span class="ticker-star">✦</span><span>今天的镜头有了主角</span><span class="ticker-star">✦</span><span>粉色不是配角</span><span class="ticker-star">✦</span><span>排面，安排上了</span><span class="ticker-star">✦</span></div></div></div></div>
+
+
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-intro"><h2 id="gallery-title">郭智淳，一次不够。</h2><p>同一个主角，三种出场方式。<br>点开海报，放大看。<span class="gallery-note">AI 创意海报</span></p></div>
+      <div class="poster-grid">
+        <figure class="poster-card">
+          <button class="poster-button" type="button" data-poster="stage" aria-label="放大郭智淳的舞台大片海报"><img id="poster-stage" src="assets/poster-stage.png" alt="郭智淳的舞台大片风格创意海报" width="1024" height="1536" decoding="async"></button>
+          <figcaption><div class="poster-info"><h3>舞台大片</h3><a href="#gallery" data-download="stage" download="郭智淳-舞台大片.png">下载图片</a></div><p class="poster-caption">聚光灯就位，属于主角的时刻。</p></figcaption>
+        </figure>
+        <figure class="poster-card">
+          <button class="poster-button" type="button" data-poster="cyber" aria-label="放大郭智淳的霓虹未来海报"><img id="poster-cyber" src="assets/poster-cyber.png" alt="郭智淳的霓虹未来风格创意海报" width="1024" height="1536" loading="lazy" decoding="async"></button>
+          <figcaption><div class="poster-info"><h3>霓虹未来</h3><a href="#gallery" data-download="cyber" download="郭智淳-霓虹未来.png">下载图片</a></div><p class="poster-caption">把这一身粉色，带进未来的光里。</p></figcaption>
+        </figure>
+        <figure class="poster-card">
+          <button class="poster-button" type="button" data-poster="comic" aria-label="放大郭智淳的漫画封面海报"><img id="poster-comic" src="assets/poster-comic.png" alt="郭智淳的漫画封面风格创意海报" width="1024" height="1536" loading="lazy" decoding="async"></button>
+          <figcaption><div class="poster-info"><h3>漫画封面</h3><a href="#gallery" data-download="comic" download="郭智淳-漫画封面.png">下载图片</a></div><p class="poster-caption">主角不只在镜头里，也在故事封面上。</p></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="details" id="look" aria-labelledby="look-title">
+      <div class="section-intro"><h2 id="look-title">这身出场，自有重点。</h2><p>不需要复杂的介绍。<br>把照片里的三个细节，放大一点看。</p></div>
+      <div class="look-grid">
+        <article class="look-item">
+          <svg class="detail-art" viewBox="0 0 280 135" aria-hidden="true"><ellipse cx="140" cy="112" rx="94" ry="8" fill="#e9dfeb"/><g fill="#f8dfec" fill-opacity=".65" stroke="#b99cb5" stroke-width="5" stroke-linejoin="round"><path d="M48 40Q70 29 112 39L115 64Q114 91 85 92Q53 92 50 66Z"/><path d="M165 39Q204 29 231 41L229 68Q226 93 198 92Q166 91 165 66Z"/></g><path d="M115 51Q139 41 165 51M48 46L29 39M231 46L252 39" fill="none" stroke="#b99cb5" stroke-width="5" stroke-linecap="round"/><path d="M67 46L60 72M184 44L175 70" stroke="white" stroke-width="6" stroke-linecap="round"/><path d="M241 20v13m-6-6h12" stroke="#e64d8a" stroke-width="2" stroke-linecap="round"/></svg>
+          <div><h3>透明镜框</h3><p>把光线收进镜片。轻盈的边框，让画面多一点透亮。</p></div>
+        </article>
+        <article class="look-item">
+          <svg class="detail-art" viewBox="0 0 280 135" aria-hidden="true"><ellipse cx="140" cy="123" rx="76" ry="6" fill="#e9dfeb"/><path d="M113 15L96 27L71 37L54 99L82 107L99 68L98 120H182L181 68L198 107L226 99L209 37L184 27L167 15Z" fill="#f8a5c3" stroke="#9d5678" stroke-width="2.5" stroke-linejoin="round"/><path d="M115 16L140 31L165 16L172 36L153 55L140 120L127 55L108 36Z" fill="#ffd1e1" stroke="#9d5678" stroke-width="2"/><path d="M126 26L140 32L154 26L140 98Z" fill="#352b3e"/><path d="M104 68h20M159 68h18" stroke="#d47b9f" stroke-width="3"/><circle cx="149" cy="88" r="2.2" fill="#9d5678"/></svg>
+          <div><h3>粉色外套</h3><p>今天的视觉中心。不用大声说话，颜色已经先打了招呼。</p></div>
+        </article>
+        <article class="look-item">
+          <svg class="detail-art" viewBox="0 0 280 135" aria-hidden="true"><ellipse cx="140" cy="123" rx="75" ry="6" fill="#e9dfeb"/><path d="M112 19L94 27L65 48L85 77L105 66V119H175V66L195 77L215 48L186 27L168 19Q140 42 112 19Z" fill="#352b3e" stroke="#29162f" stroke-width="2.5" stroke-linejoin="round"/><path d="M112 19Q140 52 168 19" fill="none" stroke="#706077" stroke-width="4"/><path d="M114 65v38M168 71v28" stroke="#4c4056" stroke-width="2" stroke-linecap="round"/><path d="M227 91l5 12 12 5-12 5-5 12-5-12-12-5 12-5Z" fill="#f8a5c3"/></svg>
+          <div><h3>黑色内搭</h3><p>让色彩有个稳稳的落点。粉与黑的对比，刚好把重点留住。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="finale" id="finale" aria-labelledby="finale-title"><p>这一页的主角，从头到尾都是</p><h2 id="finale-title">郭智淳。<br><span class="finale-line">镜头记住这一刻，</span><span class="finale-line">排面留在这一页。</span></h2><a href="#hero">回到开场，再来一次</a></section>
+  </main>
+  <footer class="footer"><strong>郭智淳的高光时刻</strong><span>个人展示 · 课堂作品</span></footer>
+
+  <dialog class="entrance-dialog" id="entrance" aria-labelledby="entrance-title" aria-describedby="entrance-description">
+    <p class="sr-only" id="entrance-description">郭智淳的舞台登场动画，约四秒后自动返回网页。可随时跳过或按 Escape。</p>
+    <div class="entrance-controls"><span>郭智淳的登场时刻</span><button class="skip-entrance" id="skip-entrance" type="button" autofocus>跳过动画</button></div>
+    <div class="entrance-floor" aria-hidden="true"></div><div class="entrance-beam" aria-hidden="true"></div><div class="entrance-beam right" aria-hidden="true"></div>
+    <div class="entrance-rings" aria-hidden="true"></div><div class="entrance-orbit" aria-hidden="true"></div>
+    <figure class="entrance-poster"><img id="entrance-photo" alt="郭智淳的舞台大片海报"></figure>
+    <p class="entrance-kicker" aria-hidden="true">全场灯光，为你亮起。</p>
+    <h2 class="entrance-name" id="entrance-title">郭智淳</h2><p class="entrance-subtitle">此刻，主角登场。</p>
+    <div class="entrance-particles" id="entrance-particles" aria-hidden="true"></div>
+    <div class="entrance-curtain left" aria-hidden="true"></div><div class="entrance-curtain right" aria-hidden="true"></div>
+    <div class="entrance-seal" aria-hidden="true">这一次<b>排面拉满</b></div><div class="entrance-timer" aria-hidden="true"></div>
+  </dialog>
+  <dialog class="poster-dialog" id="poster-dialog" aria-labelledby="poster-dialog-title">
+    <div class="poster-dialog-header"><h2 id="poster-dialog-title">郭智淳的创意海报</h2><button class="poster-dialog-close" id="close-poster" type="button" autofocus>关闭</button></div>
+    <img class="poster-dialog-image" id="poster-dialog-image" alt="郭智淳的创意海报">
+    <div class="poster-dialog-footer"><span>AI 创意海报</span><a id="poster-dialog-download" href="#gallery" download>下载这张图片</a></div>
+  </dialog>
+
+  <div class="confetti-layer" id="confetti" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><p style="text-align:center;padding:16px">照片和文字可以正常浏览；启用 JavaScript 后可体验登场特效。</p></noscript>
+
+  <script>
+    (()=>{
+      'use strict';
+      const byId=id=>document.getElementById(id);
+      const root=document.documentElement;
+      const hero=byId('hero'),launch=byId('launch'),launchLabel=byId('launch-label');
+      const hype=byId('hype'),hypeValue=byId('hype-value');
+      const motionButton=byId('motion-toggle'),motionLabel=byId('motion-label');
+      const confetti=byId('confetti'),toast=byId('toast');
+      const entrance=byId('entrance'),stageParticles=byId('entrance-particles');
+      const lightbox=byId('poster-dialog'),lightboxImage=byId('poster-dialog-image');
+      const lightboxTitle=byId('poster-dialog-title'),lightboxDownload=byId('poster-dialog-download');
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+      const palettes=['#f8a5c3','#ffe685','#fff9fc','#a489d4','#e64d8a'];
+      const posters={
+        stage:{title:'舞台大片',file:'郭智淳-舞台大片.png'},
+        cyber:{title:'霓虹未来',file:'郭智淳-霓虹未来.png'},
+        comic:{title:'漫画封面',file:'郭智淳-漫画封面.png'}
+      };
+      let paused=reduced.matches;
+      let toastTimer=0,launchTimer=0,cleanupTimer=0,stageBurstTimer=0,stageEndTimer=0,stageCloseTimer=0;
+      let lightboxOpener=null;
+      let stageOutcome='skip';
+
+      function showToast(message){
+        clearTimeout(toastTimer);toast.textContent=message;toast.classList.add('show');
+        toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
+      }
+      function syncScroll(){document.body.classList.toggle('modal-open',entrance.open||lightbox.open)}
+      function clearStageTimers(){
+        clearTimeout(stageBurstTimer);clearTimeout(stageEndTimer);clearTimeout(stageCloseTimer);
+        stageBurstTimer=stageEndTimer=stageCloseTimer=0;
+      }
+      function cleanupStage(){
+        clearStageTimers();entrance.classList.remove('is-playing','is-leaving');
+        stageParticles.replaceChildren();launch.disabled=false;syncScroll();
+      }
+      function endEntrance(outcome='skip'){
+        stageOutcome=outcome;clearStageTimers();
+        if(entrance.open)entrance.close();else cleanupStage();
+      }
+      function stopEffects(){
+        clearTimeout(launchTimer);clearTimeout(cleanupTimer);
+        hero.classList.remove('celebrating');confetti.replaceChildren();
+        endEntrance('skip');launch.disabled=false;
+      }
+      function syncMotion(){
+        const effective=paused||reduced.matches;
+        document.body.classList.toggle('effects-paused',effective);
+        motionButton.setAttribute('aria-pressed',String(effective));
+        motionLabel.textContent=effective?'特效已暂停':'暂停特效';
+      }
+      function setHype(){
+        const value=Number(hype.value),label=value<35?'日常亮相':value<85?'主角登场':'全场高光';
+        hypeValue.textContent=`${label} · ${value}%`;hype.setAttribute('aria-valuetext',`${label}，${value}%`);
+        root.style.setProperty('--hype',value/100);root.style.setProperty('--shine',.15+value/100*.85);
+        root.style.setProperty('--title-turn',`${-value/35}deg`);root.style.setProperty('--photo-turn',`${1+value/17.5}deg`);
+        root.style.setProperty('--star-turn',`${-4+value*.26}deg`);
+      }
+      function burst(target=confetti){
+        const count=Math.round(30+Number(hype.value)*.9),fragment=document.createDocumentFragment();
+        for(let i=0;i<count;i++){
+          const piece=document.createElement('i');piece.className='confetti-piece'+(i%4===0?' star':'');
+          const angle=Math.random()*Math.PI*2,distance=160+Math.random()*Math.min(innerWidth*.65,700);
+          piece.style.setProperty('--dx',`${Math.cos(angle)*distance}px`);
+          piece.style.setProperty('--dy',`${Math.sin(angle)*distance+170}px`);
+          piece.style.setProperty('--spin',`${Math.random()*1080-540}deg`);
+          piece.style.setProperty('--w',`${5+Math.random()*6}px`);piece.style.setProperty('--h',`${9+Math.random()*10}px`);
+          piece.style.setProperty('--color',palettes[i%palettes.length]);
+          piece.style.setProperty('--duration',`${1550+Math.random()*800}ms`);piece.style.setProperty('--delay',`${Math.random()*90}ms`);
+          fragment.appendChild(piece);
+        }
+        target.replaceChildren(fragment);
+        if(target===confetti){clearTimeout(cleanupTimer);cleanupTimer=setTimeout(()=>confetti.replaceChildren(),2700)}
+      }
+      entrance.addEventListener('close',()=>{
+        const complete=stageOutcome==='complete';cleanupStage();
+        if(!document.hidden)launch.focus({preventScroll:true});
+        if(complete&&!paused&&!reduced.matches){
+          hero.classList.add('celebrating');burst();showToast('主角已登场。往下看，三张海报也就位了。');
+          launchTimer=setTimeout(()=>hero.classList.remove('celebrating'),1800);
+        }
+      });
+      entrance.addEventListener('cancel',event=>{event.preventDefault();endEntrance('skip')});
+      byId('skip-entrance').addEventListener('click',()=>endEntrance('skip'));
+      launch.addEventListener('click',()=>{
+        stopEffects();launchLabel.textContent='再来一次，主角登场';
+        if(paused||reduced.matches){showToast('郭智淳，主角登场！当前使用静态展示。');return}
+        byId('entrance-photo').src=byId('poster-stage').src;
+        stageOutcome='skip';entrance.showModal();syncScroll();entrance.classList.add('is-playing');
+        launch.disabled=true;byId('skip-entrance').focus({preventScroll:true});
+        stageBurstTimer=setTimeout(()=>{if(entrance.open)burst(stageParticles)},1850);
+        stageEndTimer=setTimeout(()=>{
+          if(!entrance.open)return;
+          entrance.classList.add('is-leaving');
+          stageCloseTimer=setTimeout(()=>endEntrance('complete'),250);
+        },4050);
+      });
+      hype.addEventListener('input',setHype);
+      motionButton.addEventListener('click',()=>{
+        if(reduced.matches){showToast('已跟随系统的减少动态效果设置，保留静态展示。');return}
+        paused=!paused;if(paused)stopEffects();syncMotion();
+        showToast(paused?'特效已暂停，安心看照片。':'特效已恢复，可以再次登场。');
+      });
+      reduced.addEventListener('change',event=>{if(event.matches){paused=true;stopEffects()}syncMotion()});
+      document.addEventListener('visibilitychange',()=>{if(document.hidden)stopEffects()});
+
+      for(const [key,poster] of Object.entries(posters)){
+        const image=byId(`poster-${key}`),download=document.querySelector(`[data-download="${key}"]`);
+        download.href=image.src;download.download=poster.file;
+      }
+      document.querySelectorAll('[data-poster]').forEach(button=>{
+        button.addEventListener('click',()=>{
+          const key=button.dataset.poster,poster=posters[key],image=byId(`poster-${key}`);
+          if(!poster)return;
+          lightboxOpener=button;lightboxImage.src=image.src;lightboxImage.alt=image.alt;
+          lightboxTitle.textContent=`郭智淳 · ${poster.title}`;
+          lightboxDownload.href=image.src;lightboxDownload.download=poster.file;
+          lightbox.showModal();syncScroll();byId('close-poster').focus({preventScroll:true});
+        });
+      });
+      byId('close-poster').addEventListener('click',()=>lightbox.close());
+      lightbox.addEventListener('click',event=>{
+        if(event.target!==lightbox)return;
+        const bounds=lightbox.getBoundingClientRect();
+        if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)lightbox.close();
+      });
+      lightbox.addEventListener('close',()=>{syncScroll();if(lightboxOpener&&!document.hidden)lightboxOpener.focus({preventScroll:true})});
+      setHype();syncMotion();
+    })();
+
+  </script>
+</body>
+</html>
