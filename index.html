@@ -21,34 +21,528 @@
 @media(max-width:700px){.site-nav{min-height:70px;padding:14px 20px;gap:15px}.brand{font-size:18px}.nav-links{display:none}.motion-button{font-size:11px;padding:9px 12px;min-height:39px}.hero-inner{padding:32px 19px 36px}.hero-heading p{font-size:11px;letter-spacing:.08em;margin-bottom:8px}.hero-heading h1{font-size:clamp(70px,20vw,115px)}.hero-heading .subtitle{font-size:12px;letter-spacing:.12em;margin-top:12px}.duo-profiles{grid-template-columns:1fr 1fr;gap:19px;margin-top:30px}.between-stars{display:none}.profile-frame{padding:5px;border-width:1.5px;box-shadow:4px 5px 0 var(--ink)}.frame-caption{padding:8px 1px 2px;font-size:8px;gap:3px}.frame-caption b{font-size:9px}.frame-caption span{display:none}.profile-label{width:53px;height:53px;right:-9px;top:-17px;font-size:9px}.photo-open-hint{font-size:8px;right:4px;bottom:4px;padding:4px 5px}.profile h2{font-size:24px;margin:18px 0 7px;letter-spacing:0}.profile-subtitle{font-size:10px;margin-bottom:12px}.individual-launch{width:100%;min-height:41px;padding:8px 5px;font-size:11px;border-radius:6px;box-shadow:2px 2px 0 #211b382b}.photo-mode{margin-top:11px;min-height:30px}.photo-mode button{padding:5px 6px;font-size:9px;min-height:30px;white-space:nowrap}.guo-spacer{height:41px}.duo-controls{flex-direction:column;gap:25px;margin-top:23px}.launch-main{font-size:14px;min-height:54px;padding:13px 23px}.hype-control{width:min(300px,100%)}.hype-control label{font-size:10px}.hero-smallprint{font-size:9px;margin-top:17px}.hero-star.left{font-size:28px;left:4%;top:6%}.hero-star.right{font-size:26px;right:4%;top:9%}.pair-orbit{inset:27% 0 auto;height:29%}.ticker-group{font-size:11px;padding:13px 25px 13px 0;gap:25px}.ticker-group i{font-size:16px}.gallery{padding:50px 23px 55px}.section-heading{display:block;margin-bottom:29px}.section-heading h2{font-size:29px}.section-heading p{font-size:12px;margin-top:14px;max-width:none}.gallery-subheading{gap:12px;margin-bottom:17px}.gallery-subheading h3{font-size:16px}.gallery-subheading span{font-size:9px}.poster-grid{grid-template-columns:1fr;max-width:380px;margin:auto;gap:30px}.poster-button{padding:7px;box-shadow:4px 5px 0 #d9c7dd}.poster-info{padding-top:13px}.poster-info h4{font-size:17px}.poster-info a{font-size:11px}.poster-caption{font-size:11px}.gu-gallery{margin-top:44px}.gu-grid{grid-template-columns:1fr;gap:30px;max-width:380px}.finale{padding:48px 20px}.finale p{font-size:10px}.finale h2{font-size:30px}.finale .final-names{font-size:14px}.finale::before,.finale::after{font-size:105px;top:57px}.finale::before{left:-25px}.finale::after{right:-25px}.footer{padding:22px 22px;font-size:9px;gap:12px}.entrance-controls{top:14px;right:14px}.entrance-controls span{display:none}.entrance-portraits{top:23%;bottom:25%;width:93vw;gap:13px}.stage-person{width:46%;max-height:340px}.stage-person figcaption{font-size:12px;padding:6px;bottom:3px}.entrance-dialog:not([data-mode="duo"]) .entrance-portraits{top:17%;bottom:22%}.entrance-dialog:not([data-mode="duo"]) .stage-person{width:78vw;max-height:none}.entrance-name{font-size:clamp(70px,22vw,130px);bottom:11%;text-shadow:3px 4px 0 #cf79b2,6px 7px 0 #211b38}.entrance-dialog[data-mode="duo"] .entrance-name{font-size:clamp(27px,6.7vw,46px);bottom:16%;text-shadow:2px 3px 0 #cf79b2,4px 5px 0 #211b38}.entrance-subtitle{bottom:7%;font-size:10px;letter-spacing:.1em}.entrance-kicker{top:14%;font-size:12px;letter-spacing:.14em}.entrance-rings{width:95vw}.entrance-seal{font-size:12px;padding:15px 18px}.entrance-seal b{font-size:25px}.image-dialog{width:calc(100vw - 20px);height:92dvh}.image-dialog-header{padding:12px 13px;gap:10px}.image-dialog-header h2{font-size:14px}.image-dialog-close{font-size:11px;padding:8px 14px}.image-dialog-image{padding:7px}.image-dialog-footer{padding:10px 14px 14px;font-size:10px}.toast{font-size:11px;padding:11px 16px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
+<style>
+  .still-feature {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(160px, .65fr) minmax(0, 1.8fr);
+    align-items: center;
+    gap: clamp(20px, 4vw, 52px);
+    margin-bottom: clamp(44px, 6vw, 76px);
+    padding: clamp(26px, 4vw, 50px);
+    background: #211b31;
+    color: #fff8fa;
+    border: 1px solid #30263f;
+  }
+  .still-feature::before, .still-feature::after {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    height: 4px;
+    content: "";
+    background: repeating-linear-gradient(90deg, #b6a8bc 0 8px, transparent 8px 23px);
+  }
+  .still-feature::before { top: 7px; }
+  .still-feature::after { bottom: 7px; }
+  .still-heading { min-width: 0; }
+  .still-heading small { font: 600 10px/1.5 ui-monospace, monospace; letter-spacing: .16em; color: #edb5cd; }
+  .still-heading h3 { margin: 10px 0 12px; font-size: clamp(27px, 3.5vw, 49px); line-height: 1.12; letter-spacing: -.06em; }
+  .still-heading p { max-width: 17em; margin: 0; color: #d6cddd; font-size: 13px; line-height: 1.85; }
+  .still-replay {
+    min-height: 40px;
+    margin-top: 22px;
+    padding: 7px 13px;
+    border: 1px solid #a694ad;
+    background: transparent;
+    color: #fff8fa;
+    font-weight: 650;
+    font-size: 12px;
+  }
+  .still-replay:hover { color: var(--ink); background: var(--gold); }
+  .still-feature :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .still-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(9px, 2vw, 23px); }
+  .still-pair figure { min-width: 0; margin: 0; }
+  .still-pair .poster-button { padding: 3px; background: #f3c0d7; box-shadow: none; border: 0; }
+  .still-pair figure + figure .poster-button { background: #aadafa; }
+  .still-pair img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: contain; }
+  .still-pair figcaption { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 3px 8px; padding-top: 10px; }
+  .still-pair figcaption h4 { font-size: clamp(14px, 1.55vw, 20px); line-height: 1.45; margin: 0; }
+  .still-pair figcaption h4 span { display: block; margin-bottom: 1px; font-size: 11px; font-weight: 550; color: #d6ccda; }
+  .still-pair figcaption a { display: inline-flex; align-items: center; min-height: 30px; font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 700px) {
+    .still-feature { display: block; padding: 23px 12px; margin-left: -8px; margin-right: -8px; }
+    .still-heading { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 8px; margin-bottom: 14px; }
+    .still-heading small { grid-column: 1 / -1; font-size: 9px; }
+    .still-heading h3 { margin: 5px 0 4px; }
+    .still-heading p { grid-column: 1 / -1; max-width: none; font-size: 11px; }
+    .still-replay { grid-column: 2; grid-row: 2; min-height: 36px; margin: 0; padding: 4px 8px; font-size: 11px; }
+    .still-pair figcaption { align-items: start; flex-direction: column; padding-top: 7px; }
+  }
+</style>
+<style>
+/* A six-second film leader. All time offsets are measured from dialog.showModal(). */
+.prem-screen {
+  --prem-ink: #10101e;
+  --prem-paper: #fff4d7;
+  --prem-gold: #ffe496;
+  --prem-pink: #ff88c9;
+  --prem-blue: #8adfff;
+  --prem-frame: clamp(14px, 3.7vw, 64px);
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--prem-ink);
+  color: var(--prem-paper);
+  color-scheme: dark;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.prem-screen:not([open]) { display: none; }
+.prem-screen[open] { display: block; animation: prem-end .29s ease-in 5.90s both; }
+.prem-screen::backdrop { background: var(--prem-ink, #10101e); }
+.prem-screen[open]::backdrop { animation: prem-end .29s ease-in 5.90s both; }
+.prem-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.prem-space, .prem-space::before, .prem-space::after, .prem-chart {
+  position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none;
+}
+.prem-space {
+  overflow: hidden;
+  background: linear-gradient(112deg, #331c3d -18%, #191325 37%, #111625 58%, #193654 119%);
+}
+.prem-space::before {
+  content: "";
+  background-image: radial-gradient(ellipse, #f9f4ff59 0 .8px, transparent 1.1px);
+  background-size: 6px 6px;
+  mask-image: linear-gradient(118deg, #0008, transparent 31%, transparent 62%, #0008);
+}
+.prem-space::after {
+  content: "";
+  background: repeating-conic-gradient(from 6deg at 50% 50%, transparent 0deg 8.4deg, #f9f4ff55 8.5deg 8.7deg, transparent 8.8deg 13.9deg);
+  mask-image: radial-gradient(ellipse, transparent 28%, #0008 74%, black);
+  opacity: 0;
+}
+.prem-chart { color: #b5a5d5; opacity: .48; }
+.prem-rail, .prem-footer {
+  position: absolute; left: var(--prem-frame); right: var(--prem-frame);
+  display: flex; align-items: center; justify-content: space-between; z-index: 6;
+}
+.prem-rail {
+  top: max(10px, env(safe-area-inset-top));
+  padding: 0 0 9px; border-bottom: 1px solid #d7d1ed48;
+}
+.prem-marque { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 750; letter-spacing: .12em; }
+.prem-marque svg { width: 43px; height: 30px; color: #e7deed; }
+.prem-skip {
+  min-height: 44px; padding: 4px 9px 4px 13px; border: 0;
+  background: transparent; color: var(--prem-paper); letter-spacing: .06em;
+  font-size: 13px; cursor: pointer;
+}
+.prem-skip span { padding-left: 4px; color: var(--prem-gold); font-size: 18px; }
+.prem-skip:focus-visible { outline: 2px solid var(--prem-gold); outline-offset: 0; border-radius: 4px; }
+.prem-footer {
+  bottom: max(15px, env(safe-area-inset-bottom)); gap: 15px;
+  font-size: 11px; font-weight: 650; letter-spacing: .11em; color: #e8ddea;
+}
+.prem-footer b { color: var(--prem-pink); padding: 0 4px; }
+.prem-meter { height: 2px; background: #dbd6e240; flex: 1; overflow: hidden; }
+.prem-meter i { display: block; height: 100%; transform-origin: left; background: linear-gradient(90deg, var(--prem-pink), var(--prem-blue)); }
+.prem-screen[open] .prem-meter i { animation: prem-meter 6.15s linear both; }
+
+/* A projector dial stays legible on the first paint, before either portrait arrives. */
+.prem-leader {
+  position: absolute; z-index: 3; inset: 0; display: grid; place-content: center;
+  justify-items: center; gap: 17px; pointer-events: none;
+}
+.prem-leader > span { color: var(--prem-paper); font-size: clamp(12px, 1.3vw, 18px); letter-spacing: .36em; text-indent: .36em; }
+.prem-reel {
+  position: relative; display: grid; place-items: center;
+  width: clamp(105px, 31vmin, 300px); aspect-ratio: 1;
+  border: 1px solid #ffe496a1; border-radius: 50%; color: var(--prem-gold);
+  background: linear-gradient(transparent calc(50% - .5px), #ffe49646 50%, transparent calc(50% + .5px)),
+              linear-gradient(90deg, transparent calc(50% - .5px), #ffe49646 50%, transparent calc(50% + .5px));
+}
+.prem-reel::before, .prem-reel::after {
+  content: ""; position: absolute; inset: 5.5%; border: 1px solid #ffe49669; border-radius: 50%;
+}
+.prem-reel::after { inset: -5%; border-style: dashed; border-color: #b5a5d57a; }
+.prem-reel-arm {
+  position: absolute; inset: 50% 50% 0 auto; width: 1px; height: 50%; background: var(--prem-pink);
+  transform-origin: top; box-shadow: 1px 0 0 #ff88c94a;
+}
+.prem-digit {
+  grid-area: 1 / 1; font: 900 clamp(57px, 16vmin, 154px)/1 "Arial Narrow", Helvetica, sans-serif;
+  letter-spacing: -.09em; padding-right: .09em; transform: skewX(-7deg); color: var(--prem-gold);
+}
+.prem-two,.prem-one { opacity: 0; }
+.prem-screen[open] .prem-leader { animation: prem-leader-out .26s ease-in 1.24s forwards; }
+.prem-screen[open] .prem-reel-arm { animation: prem-spin 1.5s linear both; }
+.prem-screen[open] .prem-three { animation: prem-out .001s step-end .46s forwards; }
+.prem-screen[open] .prem-two { animation: prem-in .001s step-end .46s forwards, prem-out .001s step-end .87s forwards; }
+.prem-screen[open] .prem-one { animation: prem-in .001s step-end .87s forwards; }
+
+.prem-flightpath { position: absolute; left: 50%; top: 49%; width: 0; height: 0; transform: rotate(-19deg); }
+.prem-comet {
+  position: absolute; right: 0; top: -20px; width: clamp(170px, 56vw, 850px); height: 40px;
+  color: var(--prem-pink); opacity: 0;
+}
+.prem-comet--blue { right: auto; left: 0; color: var(--prem-blue); }
+.prem-comet b { display: block; height: 100%; background: currentColor;
+  clip-path: polygon(0 38%, 68% 40%, 11% 0, 87% 32%, 100% 50%, 84% 70%, 24% 100%, 69% 60%, 9% 71%, 63% 51%);
+}
+.prem-comet--blue b { transform: scaleX(-1); }
+.prem-impact {
+  position: absolute; left: 50%; top: 49%; width: min(76vmin, 620px); height: auto; opacity: 0;
+}
+.prem-screen[open] .prem-comet--pink { --prem-from: -85vw; animation: prem-comet .79s cubic-bezier(.55,.02,.83,.43) 1.13s both; }
+.prem-screen[open] .prem-comet--blue { --prem-from: 85vw; animation: prem-comet .79s cubic-bezier(.55,.02,.83,.43) 1.13s both; }
+.prem-screen[open] .prem-impact { animation: prem-impact .71s ease-out 1.81s both; }
+.prem-screen[open] .prem-space::after { animation: prem-speed .84s ease-out 1.86s both; }
+
+/* The cast stands outside the title column. Their original 2:3 frames are uncropped. */
+.prem-bill {
+  position: absolute; inset: 70px var(--prem-frame) 48px; margin: auto;
+  display: grid; grid-template-columns: auto minmax(110px, .7fr) auto; grid-template-areas: "pink title blue";
+  align-items: center; justify-content: center; justify-items: center; max-width: 1150px;
+}
+.prem-print {
+  --prem-card-color: var(--prem-pink);
+  --prem-tilt: -7deg;
+  --prem-enter-x: -86vw;
+  --prem-enter-y: 18vh;
+  grid-area: pink; width: min(28vw, 35vh, 317px); margin: 0;
+  padding: clamp(4px, .45vw, 7px) clamp(4px, .45vw, 7px) 0; background: var(--prem-card-color);
+  border: 1px solid var(--prem-ink); box-shadow: -5px 6px 0 var(--prem-ink), -7px 8px 0 var(--prem-card-color);
+  transform: rotate(var(--prem-tilt)); opacity: 0;
+}
+.prem-print--blue {
+  --prem-card-color: var(--prem-blue); --prem-tilt: 7deg; --prem-enter-x: 86vw; --prem-enter-y: -18vh;
+  grid-area: blue; box-shadow: 5px 6px 0 var(--prem-ink), 7px 8px 0 var(--prem-card-color);
+}
+.prem-photo { width: 100%; aspect-ratio: 2/3; background: var(--prem-ink); overflow: hidden; }
+.prem-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.prem-print figcaption {
+  display: flex; align-items: center; justify-content: space-between; gap: 5px; color: var(--prem-ink);
+  padding: clamp(4px, .8vh, 10px) 2px; white-space: nowrap; line-height: 1.2;
+}
+.prem-print figcaption strong { font-size: clamp(16px, 2.3vmin, 27px); font-weight: 900; letter-spacing: .04em; }
+.prem-print figcaption span { border-left: 1px solid currentColor; padding-left: 7px; font-size: clamp(10px, 1.35vmin, 14px); font-weight: 650; }
+.prem-lettering { grid-area: title; text-align: center; justify-self: center; color: var(--prem-gold); }
+.prem-crown { display: block; width: clamp(40px, 6vw, 78px); height: auto; margin: 0 auto 1.2vh; }
+.prem-lettering h2 {
+  display: flex; flex-direction: column; margin: 0; font-size: clamp(45px, min(12vw, 15.6vh), 142px);
+  font-family: "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif;
+  font-weight: 900; line-height: .95; color: var(--prem-paper); transform: skewX(-6deg);
+  text-shadow: 2px 2px var(--prem-ink), 4px 4px var(--prem-pink), 6px 6px var(--prem-ink);
+}
+.prem-lettering h2 span { display: block; }
+.prem-lettering h2 span:first-child { --prem-lean: .045em; }
+.prem-lettering h2 span:nth-child(2) { --prem-lean: -.04em; }
+.prem-lettering h2 span:last-child { --prem-lean: .045em; }
+.prem-signature {
+  display: inline-block; margin-top: 2vh; font: italic 700 clamp(13px, 2.9vmin, 27px)/1 Georgia, serif;
+  letter-spacing: -.045em; transform: rotate(-6deg);
+}
+.prem-screen[open] .prem-print { animation: prem-card .78s cubic-bezier(.14,.77,.22,1) 1.79s both; }
+.prem-screen[open] .prem-print--blue { animation-delay: 1.90s; }
+.prem-screen[open] .prem-lettering h2 span { animation: prem-slam .54s cubic-bezier(.16,.79,.19,1) 2.58s both; }
+.prem-screen[open] .prem-lettering h2 span:nth-child(2) { animation-delay: 2.71s; }
+.prem-screen[open] .prem-lettering h2 span:nth-child(3) { animation-delay: 2.84s; }
+.prem-screen[open] .prem-crown, .prem-screen[open] .prem-signature { animation: prem-in .42s ease 3.01s both; }
+
+/* A slow poster fetch holds the first cue, without spending the reveal offscreen. */
+.prem-screen.prem-cueing[open], .prem-screen.prem-cueing[open]::backdrop,
+.prem-screen.prem-cueing[open] *, .prem-screen.prem-cueing[open] *::after { animation-play-state: paused; }
+.prem-screen.prem-cueing[open] .prem-reel-arm { animation: prem-spin 1.5s linear infinite; }
+
+@keyframes prem-in { from {opacity: 0} to {opacity: 1} }
+@keyframes prem-out { from {opacity: 1} to {opacity: 0} }
+@keyframes prem-end { from {opacity: 1} to {opacity: 0} }
+@keyframes prem-meter { from {transform: scaleX(0)} to {transform: scaleX(1)} }
+@keyframes prem-spin { from {transform: rotate(-120deg)} to {transform: rotate(360deg)} }
+@keyframes prem-leader-out { to {opacity: 0; transform: scale(1.12)} }
+@keyframes prem-comet {
+  0% {opacity: 0; transform: translateX(var(--prem-from)) scaleY(.3)}
+  27% {opacity: 1}
+  89% {opacity: 1; transform: translateX(0) scaleY(1)}
+  100% {opacity: 0; transform: translateX(0) scaleY(.35)}
+}
+@keyframes prem-impact {
+  0% {opacity: 0; transform: translate(-50%, -50%) scale(.04) rotate(-20deg)}
+  18% {opacity: .9}
+  100% {opacity: 0; transform: translate(-50%, -50%) scale(1.21) rotate(-2deg)}
+}
+@keyframes prem-speed { 0% {opacity: 0; transform: scale(.96)} 20% {opacity: .94} 100% {opacity: .28; transform: scale(1)} }
+@keyframes prem-card {
+  0% {opacity: 0; transform: translate(var(--prem-enter-x), var(--prem-enter-y)) rotate(calc(var(--prem-tilt) * 3)) scale(.78)}
+  20% {opacity: 1}
+  72% {opacity: 1; transform: rotate(calc(var(--prem-tilt) * .62)) scale(1.025)}
+  100% {opacity: 1; transform: rotate(var(--prem-tilt)) scale(1)}
+}
+@keyframes prem-slam {
+  0% {opacity: 0; transform: translateY(-.5em) scale(2.3)}
+  61% {opacity: 1; transform: translateY(.03em) scale(.91)}
+  100% {opacity: 1; transform: translateX(var(--prem-lean)) scale(1)}
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .prem-bill {
+    grid-template-columns: 1fr 1fr; grid-template-rows: max-content max-content;
+    grid-template-areas: "pink blue" "title title"; align-content: center;
+    gap: clamp(24px, 5vh, 60px) 0; max-width: 760px;
+  }
+  .prem-print { width: min(37.5vw, 25.3vh, 280px); --prem-tilt: -6deg; }
+  .prem-print--blue { --prem-tilt: 6deg; }
+  .prem-lettering h2 { flex-direction: row; font-size: clamp(52px, min(19vw, 13vh), 125px); }
+  .prem-crown { width: 42px; margin-bottom: 1.4vh; }
+  .prem-signature { margin-top: 1.8vh; }
+}
+@media (max-width: 400px) {
+  .prem-marque { font-size: 12px; }
+  .prem-print figcaption { gap: 3px; }
+  .prem-print figcaption strong { font-size: 15px; }
+  .prem-print figcaption span { font-size: 10px; padding-left: 4px; }
+}
+@media (max-height: 450px) and (min-aspect-ratio: 1/1) {
+  .prem-rail { top: 2px; padding-bottom: 1px; }
+  .prem-footer { bottom: 6px; }
+  .prem-bill { inset-block: 50px 28px; grid-template-columns: auto minmax(86px,.62fr) auto; }
+  .prem-print { width: min(22vw, 32vh); }
+  .prem-print figcaption { padding: 3px 0; }
+  .prem-print figcaption strong { font-size: 12px; }
+  .prem-print figcaption span { font-size: 9px; padding-left: 3px; }
+  .prem-crown { width: 35px; margin-bottom: 2px; }
+  .prem-signature { margin-top: 5px; }
+  .prem-lettering h2 { font-size: min(10.2vw, 15vh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prem-screen[open], .prem-screen[open]::backdrop, .prem-screen[open] *, .prem-screen[open] *::after { animation: none !important; }
+  .prem-leader { display: none; }
+  .prem-print, .prem-lettering { opacity: 1; }
+}
+
+html.prem-active {overflow:hidden}
+.nav-tools{display:flex;align-items:center;gap:10px}
+.replay-chip{color:var(--ink);border:1px solid var(--ink);border-radius:25px;background:var(--gold);padding:9px 15px;min-height:42px;font-size:12px;font-weight:700;white-space:nowrap}
+.finale-replay{margin:25px 0 0;border:0;border-bottom:1px solid currentColor;color:var(--ink);background:transparent;padding:7px 1px;font-size:13px}
+@media(max-width:700px){.nav-tools{gap:5px}.replay-chip{font-size:11px;min-height:39px;padding:8px 10px}}
+</style>
 </head>
 <body>
-<header class="site-nav"><a class="brand" href="#hero" aria-label="双子星，返回首页"><span class="brand-stars" aria-hidden="true"><span>✦</span><span>✦</span></span>双子星</a><nav class="nav-links" aria-label="页面导航"><a href="#hero">双主角</a><a href="#gallery">影像馆</a><a href="#gu-gallery">顾景豪的星光</a><a href="#finale">同场高光</a></nav><button class="motion-button" id="motion-toggle" type="button" aria-pressed="false"><span class="motion-dot" aria-hidden="true"></span><span id="motion-label">暂停特效</span></button></header>
+<dialog id="premiere" class="prem-screen" aria-label="双子星开场动画" aria-describedby="prem-description">
+  <p class="prem-sr" id="prem-description">郭智淳的香肠头与顾景豪的火柴头同场登场。片头约六秒，可随时跳过。</p>
+  <div class="prem-space" aria-hidden="true">
+    <svg class="prem-chart" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice" fill="none">
+      <g stroke="currentColor">
+        <ellipse cx="600" cy="360" rx="486" ry="197" transform="rotate(-17 600 360)"/>
+        <ellipse cx="600" cy="360" rx="547" ry="204" transform="rotate(-17 600 360)" stroke-dasharray="24 7 2 7"/>
+        <circle cx="600" cy="360" r="271" stroke-dasharray="1 12" stroke-width="3"/>
+      </g>
+      <g stroke="currentColor" stroke-width="2">
+        <path d="M136 362h16m-8-8v16m854-197h16m-8-8v16M350 65h12m-6-6v12m595 557h12m-6-6v12M66 590h10m-5-5v10m114 54h12m-6-6v12"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="227" cy="173" r="2"/><circle cx="291" cy="589" r="3"/><circle cx="1068" cy="382" r="2"/>
+        <circle cx="812" cy="69" r="2"/><circle cx="557" cy="661" r="3"/><circle cx="89" cy="224" r="2"/>
+      </g>
+    </svg>
+    <div class="prem-flightpath">
+      <i class="prem-comet prem-comet--pink"><b></b></i>
+      <i class="prem-comet prem-comet--blue"><b></b></i>
+    </div>
+    <svg class="prem-impact" viewBox="0 0 200 200" fill="none">
+      <path d="m100 0 8 72 34-42-23 53 69-25-56 38 68 6-68 11 49 36-62-23 18 61-31-52-10 65-7-69-37 41 25-53L7 144l56-39L0 97l69-9-49-35 59 21-18-56 31 48z" fill="#ffdf8a"/>
+    </svg>
+  </div>
+  <header class="prem-rail">
+    <span class="prem-marque">
+      <svg aria-hidden="true" viewBox="0 0 48 31" fill="none">
+        <ellipse cx="24" cy="16" rx="24" ry="7" transform="rotate(-25 24 16)" stroke="currentColor"/>
+        <path d="m16 2 2.5 7.5L26 12l-7.5 2.5L16 22l-2.5-7.5L6 12l7.5-2.5z" fill="#ff8bef"/>
+        <path d="m34 12 2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#89e5ff"/>
+      </svg>
+      双子星放映室
+    </span>
+    <button id="premiere-skip" class="prem-skip" type="button" autofocus>跳过片头 <span aria-hidden="true">»</span></button>
+  </header>
+  <div class="prem-leader" aria-hidden="true">
+    <div class="prem-reel">
+      <i class="prem-reel-arm"></i>
+      <em class="prem-digit prem-three">03</em><em class="prem-digit prem-two">02</em><em class="prem-digit prem-one">01</em>
+    </div>
+    <span>双星即将入轨</span>
+  </div>
+  <div class="prem-bill">
+    <figure class="prem-print prem-print--pink">
+      <div class="prem-photo"><img src="assets/intro-guo.jpg" width="480" height="720" loading="eager" fetchpriority="high" alt="郭智淳的香肠头特效海报"></div>
+      <figcaption><strong>郭智淳</strong><span>香肠头</span></figcaption>
+    </figure>
+    <div class="prem-lettering">
+      <svg class="prem-crown" aria-hidden="true" viewBox="0 0 78 26" fill="none">
+        <path d="M1 16h24m28 0h24M39 1l3.4 10.5L53 15l-10.6 3.5L39 26l-3.4-7.5L25 15l10.6-3.5z" stroke="currentColor"/>
+      </svg>
+      <h2 aria-label="双子星"><span aria-hidden="true">双</span><span aria-hidden="true">子</span><span aria-hidden="true">星</span></h2>
+      <i class="prem-signature" aria-hidden="true">Twin Stars</i>
+    </div>
+    <figure class="prem-print prem-print--blue">
+      <div class="prem-photo"><img src="assets/intro-gu.jpg" width="480" height="720" loading="eager" fetchpriority="high" alt="顾景豪的火柴头特效海报"></div>
+      <figcaption><strong>顾景豪</strong><span>火柴头</span></figcaption>
+    </figure>
+  </div>
+  <div class="prem-footer" aria-hidden="true">
+    <span>郭智淳 <b>×</b> 顾景豪</span>
+    <div class="prem-meter"><i></i></div>
+    <span>特效双人场</span>
+  </div>
+</dialog>
+
+<script>
+// Deliberately runs before the full-size gallery is parsed: a cold visit opens on the film.
+(() => {
+  'use strict';
+  const film = document.getElementById('premiere');
+  const skip = document.getElementById('premiere-skip');
+  if (!film || !skip || typeof film.showModal !== 'function') return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const duration = 6200;
+  const cast = Array.from(film.querySelectorAll('.prem-photo img'));
+  let firstVisitPending = true;
+  let end = 0, firstFrame = 0, cueWatchdog = 0, generation = 0, opener = null;
+
+  function stopClock() {
+    clearTimeout(end);
+    clearTimeout(cueWatchdog);
+    cancelAnimationFrame(firstFrame);
+  }
+  function dismiss() {
+    stopClock();
+    if (film.open) film.close();
+    document.documentElement.classList.remove('prem-active');
+  }
+  function play(button = null) {
+    if (film.open || document.hidden) return;
+    if (reduced.matches || document.body.classList.contains('effects-paused')) {
+      if (button) {
+        const stills = document.getElementById('opening-stills');
+        stills?.scrollIntoView({behavior:'instant', block:'start'});
+        stills?.focus({preventScroll:true});
+      }
+      return;
+    }
+    opener = button;
+    const thisShow = ++generation;
+    const waiting = cast.some(img => !img.complete || !img.naturalWidth);
+    film.classList.toggle('prem-cueing', waiting);
+    film.showModal();
+    document.documentElement.classList.add('prem-active');
+    skip.focus({preventScroll:true});
+    let started = false;
+    const roll = () => {
+      if (started || !film.open || thisShow !== generation) return;
+      started = true;
+      clearTimeout(cueWatchdog);
+      film.classList.remove('prem-cueing');
+      firstFrame = requestAnimationFrame(() => { end = setTimeout(dismiss, duration); });
+    };
+    if (waiting) {
+      // Immediately show a live projector dial, even on a cold/slow connection.
+      // Decode just the two lightweight stills; never wait for the full gallery.
+      cueWatchdog = setTimeout(roll, 2500);
+      Promise.allSettled(cast.map(img => img.decode())).then(roll);
+    } else roll();
+  }
+  function enterWhenVisible() {
+    if (!firstVisitPending || document.hidden) return;
+    firstVisitPending = false;
+    play();
+  }
+  skip.addEventListener('click', dismiss);
+  film.addEventListener('cancel', event => {
+    event.preventDefault();
+    dismiss();
+  });
+  film.addEventListener('close', () => {
+    if (film.open) return;
+    stopClock();
+    document.documentElement.classList.remove('prem-active');
+    const focusTarget = opener || (!location.hash && document.getElementById('hero-title'));
+    opener = null;
+    if (!document.hidden && focusTarget) focusTarget.focus({preventScroll:true});
+  });
+  document.addEventListener('click', event => {
+    const button = event.target.closest?.('[data-premiere]');
+    if (button) { event.preventDefault(); play(button); }
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) dismiss();
+    else enterWhenVisible();
+  });
+  reduced.addEventListener('change', event => { if (event.matches) dismiss(); });
+  window.addEventListener('pagehide', dismiss);
+  enterWhenVisible();
+})();
+
+</script>
+<header class="site-nav"><a class="brand" href="#hero" aria-label="双子星，返回首页"><span class="brand-stars" aria-hidden="true"><span>✦</span><span>✦</span></span>双子星</a><nav class="nav-links" aria-label="页面导航"><a href="#hero">双主角</a><a href="#gallery">影像馆</a><a href="#gu-gallery">顾景豪的星光</a><a href="#finale">同场高光</a></nav><div class="nav-tools"><button type="button" data-premiere class="replay-chip"><span aria-hidden="true">▶</span> 重播片头</button><button class="motion-button" id="motion-toggle" type="button" aria-pressed="false"><span class="motion-dot" aria-hidden="true"></span><span id="motion-label">暂停特效</span></button></div></header>
 <main>
 <section class="hero" id="hero" aria-labelledby="hero-title"><div class="hero-inner">
-<div class="hero-heading"><p>两种光芒，同场登场。</p><h1 id="hero-title">双子星</h1><p class="subtitle">郭智淳 × 顾景豪</p></div><div class="pair-orbit" aria-hidden="true"></div>
+<div class="hero-heading"><p>两种光芒，同场登场。</p><h1 id="hero-title" tabindex="-1">双子星</h1><p class="subtitle">郭智淳 × 顾景豪</p></div><div class="pair-orbit" aria-hidden="true"></div>
 <div class="duo-profiles">
 <article class="profile guo" aria-labelledby="guo-name"><div class="profile-frame"><button class="portrait-button" type="button" data-open="guo-original" aria-label="查看郭智淳的照片原图"><span class="photo-window"><img id="guo-photo" src="assets/portrait.jpg" width="960" height="2082" alt="郭智淳戴透明眼镜、穿粉色外套的照片" fetchpriority="high"></span><span class="photo-open-hint" aria-hidden="true">点击看原图</span></button><div class="frame-caption"><b>粉色舞台</b><span>镜头里的这一刻</span></div><span class="profile-label" aria-hidden="true">粉色<br>高光</span></div><h2 id="guo-name">郭智淳</h2><p class="profile-subtitle">粉色舞台，聚光灯就位。</p><button class="individual-launch" type="button" data-launch="guo">郭智淳，登场</button><div class="guo-spacer" aria-hidden="true"></div></article>
 <div class="between-stars" aria-hidden="true">✦</div>
 <article class="profile gu" aria-labelledby="gu-name"><div class="profile-frame"><button class="portrait-button" id="gu-photo-button" type="button" data-open="gu-portrait" aria-label="查看顾景豪的日常镜头原图"><span class="photo-window"><img id="gu-portrait" src="assets/gu-jinghao-portrait.jpg" width="1279" height="1706" alt="顾景豪穿灰色卫衣的蓝调人像照片" fetchpriority="high"><img id="gu-effect-preview" width="1024" height="1536" alt="顾景豪的火柴头风格 AI 特效海报" hidden></span><span class="photo-open-hint" aria-hidden="true">点击看原图</span></button><div class="frame-caption"><b id="gu-frame-caption">日常镜头</b><span>蓝色星光</span></div><span class="profile-label" aria-hidden="true">蓝色<br>星光</span></div><h2 id="gu-name">顾景豪</h2><p class="profile-subtitle">蓝色星光，也有特效彩蛋。</p><button class="individual-launch" type="button" data-launch="gu">顾景豪，登场</button><div class="photo-mode" role="group" aria-label="切换顾景豪照片"><button type="button" data-gu-mode="portrait" aria-pressed="true">日常镜头</button><button type="button" data-gu-mode="effect" aria-pressed="false">特效镜头</button></div></article>
 </div>
-<div class="duo-controls"><button class="launch-main" id="launch-duo" data-launch="duo" type="button"><span aria-hidden="true">✦</span><span>双子星，一起登场</span></button><div class="hype-control"><label for="hype"><span>排面调节器</span><output id="hype-value" for="hype">主角登场 · 70%</output></label><input type="range" id="hype" min="0" max="100" step="1" value="70" aria-valuetext="主角登场，70%"></div></div><p class="hero-smallprint">两个人，各有镜头；同一页，都有高光。</p><span class="hero-star left" aria-hidden="true">✦</span><span class="hero-star right" aria-hidden="true">✦</span>
+<div class="duo-controls"><button class="launch-main" id="launch-duo" data-premiere type="button"><span aria-hidden="true">✦</span><span>重播双子星开场</span></button><div class="hype-control"><label for="hype"><span>排面调节器</span><output id="hype-value" for="hype">主角登场 · 70%</output></label><input type="range" id="hype" min="0" max="100" step="1" value="70" aria-valuetext="主角登场，70%"></div></div><p class="hero-smallprint">两个人，各有镜头；同一页，都有高光。</p><span class="hero-star left" aria-hidden="true">✦</span><span class="hero-star right" aria-hidden="true">✦</span>
 </div></section>
 <div class="ticker-shell" aria-hidden="true"><div class="ticker-track"><div class="ticker-group"><span>郭智淳</span><i>✦</i><span>顾景豪</span><i>✦</i><span>双子星，一起登场</span><i>✦</i><span>粉色舞台 × 蓝色星光</span><i>✦</i></div><div class="ticker-group"><span>郭智淳</span><i>✦</i><span>顾景豪</span><i>✦</i><span>双子星，一起登场</span><i>✦</i><span>粉色舞台 × 蓝色星光</span><i>✦</i></div></div></div>
-<section class="gallery" id="gallery" aria-labelledby="gallery-title"><div class="section-heading"><h2 id="gallery-title">两束光，各有画面。</h2><p>郭智淳的三张创意海报，<br>顾景豪的三种创意出场。点击图片，放大看。</p></div>
+<section class="gallery" id="gallery" aria-labelledby="gallery-title"><div class="section-heading"><h2 id="gallery-title">两束光，各有画面。</h2><p>两张片头特效，五张个人海报。<br>点击海报可以放大，也可以下载原图。</p></div>
+<section class="still-feature" id="opening-stills" aria-labelledby="opening-stills-title" tabindex="-1">
+  <div class="still-heading">
+    <small lang="en">TWIN STARS / TAKE 01</small>
+    <h3 id="opening-stills-title">片头定格</h3>
+    <p>香肠头碰上火柴头，两位主角同框的那一幕。</p>
+    <button class="still-replay" type="button" data-premiere><span aria-hidden="true">↺</span> 重播片头</button>
+  </div>
+  <div class="still-pair">
+    <figure>
+      <button class="poster-button" type="button" data-open="sausage" aria-label="放大郭智淳的香肠头特效海报">
+        <img id="poster-sausage" src="assets/poster-sausage.png" width="1024" height="1536" alt="郭智淳戴透明眼镜、穿粉外套的香肠头 AI 特效海报" loading="lazy" decoding="async">
+      </button>
+      <figcaption>
+        <h4><span>郭智淳</span>香肠头特效</h4>
+        <a href="#opening-stills" data-download="sausage" download aria-label="下载郭智淳的香肠头特效海报">下载原图</a>
+      </figcaption>
+    </figure>
+    <figure>
+      <button class="poster-button" type="button" data-open="gu-match" aria-label="放大顾景豪的火柴头特效海报">
+        <img id="gu-poster-match" src="assets/gu-poster-match.png" width="1024" height="1536" alt="顾景豪头顶火焰的火柴头 AI 特效海报" loading="lazy" decoding="async">
+      </button>
+      <figcaption>
+        <h4><span>顾景豪</span>火柴头特效</h4>
+        <a href="#opening-stills" data-download="gu-match" download aria-label="下载顾景豪的火柴头特效海报">下载原图</a>
+      </figcaption>
+    </figure>
+  </div>
+</section>
 <div class="gallery-subheading"><h3>郭智淳 · 海报宇宙</h3><span>AI 创意海报</span></div>
 <div class="poster-grid">
 <figure class="poster-card"><button class="poster-button" type="button" data-open="stage" aria-label="放大郭智淳的舞台大片海报"><img id="poster-stage" src="assets/poster-stage.png" width="1024" height="1536" alt="郭智淳的舞台大片风格 AI 海报" decoding="async"></button><figcaption><div class="poster-info"><h4>舞台大片</h4><a href="#gallery" data-download="stage" download>下载图片</a></div><p class="poster-caption">聚光灯就位，属于主角的时刻。</p></figcaption></figure>
 <figure class="poster-card"><button class="poster-button" type="button" data-open="cyber" aria-label="放大郭智淳的霓虹未来海报"><img id="poster-cyber" src="assets/poster-cyber.png" width="1024" height="1536" alt="郭智淳的霓虹未来风格 AI 海报" loading="lazy" decoding="async"></button><figcaption><div class="poster-info"><h4>霓虹未来</h4><a href="#gallery" data-download="cyber" download>下载图片</a></div><p class="poster-caption">把这一身粉色，带进未来的光里。</p></figcaption></figure>
 <figure class="poster-card"><button class="poster-button" type="button" data-open="comic" aria-label="放大郭智淳的漫画封面海报"><img id="poster-comic" src="assets/poster-comic.png" width="1024" height="1536" alt="郭智淳的漫画封面风格 AI 海报" loading="lazy" decoding="async"></button><figcaption><div class="poster-info"><h4>漫画封面</h4><a href="#gallery" data-download="comic" download>下载图片</a></div><p class="poster-caption">主角也可以出现在故事封面上。</p></figcaption></figure>
 </div>
-<div class="gu-gallery" id="gu-gallery"><div class="gallery-subheading"><h3>顾景豪 · 星光宇宙</h3><span>AI 创意海报</span></div><div class="poster-grid">
+<div class="gu-gallery" id="gu-gallery"><div class="gallery-subheading"><h3>顾景豪 · 星光宇宙</h3><span>AI 创意海报</span></div><div class="gu-grid">
 <figure class="poster-card"><button class="poster-button" type="button" data-open="gu-star" aria-label="放大顾景豪的蓝色星光海报"><img id="gu-poster-star" src="assets/gu-poster-star.png" width="1024" height="1536" alt="顾景豪的蓝色星光风格 AI 海报" loading="lazy" decoding="async"></button><figcaption><div class="poster-info"><h4>蓝色星光</h4><a href="#gu-gallery" data-download="gu-star" download>下载图片</a></div><p class="poster-caption">属于另一位主角的蓝色舞台。</p></figcaption></figure>
 <figure class="poster-card"><button class="poster-button" type="button" data-open="gu-neon" aria-label="放大顾景豪的霓虹出场海报"><img id="gu-poster-neon" src="assets/gu-poster-neon.png" width="1024" height="1536" alt="顾景豪的霓虹出场风格 AI 海报" loading="lazy" decoding="async"></button><figcaption><div class="poster-info"><h4>霓虹出场</h4><a href="#gu-gallery" data-download="gu-neon" download>下载图片</a></div><p class="poster-caption">让镜头里的这一刻，走进未来的光。</p></figcaption></figure>
-<figure class="poster-card"><button class="poster-button" type="button" data-open="gu-match" aria-label="放大顾景豪的火柴头特效海报"><img id="gu-poster-match" src="assets/gu-poster-match.png" width="1024" height="1536" alt="顾景豪的火柴头风格 AI 特效海报" loading="lazy" decoding="async"></button><figcaption><div class="poster-info"><h4>火柴头特效</h4><a href="#gu-gallery" data-download="gu-match" download>下载图片</a></div><p class="poster-caption">由特效截图延伸出的创意画面，点亮彩蛋模式。</p></figcaption></figure>
 </div><div class="original-views"><span>原始镜头也在这里</span><button type="button" data-open="gu-portrait">查看顾景豪日常原图</button><button type="button" data-open="gu-effect">查看原始特效截图</button></div><img id="gu-effect" src="assets/gu-jinghao-effect.jpg" width="1280" height="2844" alt="顾景豪使用夸张滤镜的原始手机截图" hidden></div>
 </section>
-<section class="finale" id="finale" aria-labelledby="finale-title"><p>这一次，同一舞台，两位主角。</p><h2 id="finale-title">双子星，同场高光。</h2><p class="final-names">郭智淳 × 顾景豪</p><a href="#hero">回到开场，再来一次</a></section>
+<section class="finale" id="finale" aria-labelledby="finale-title"><p>这一次，同一舞台，两位主角。</p><h2 id="finale-title">双子星，同场高光。</h2><p class="final-names">郭智淳 × 顾景豪</p><button class="finale-replay" data-premiere type="button">再看一次双星片头 ↗</button></section>
 </main>
 <footer class="footer"><strong>双子星 · 郭智淳 × 顾景豪</strong><span>双主角展示 · 课堂作品</span></footer>
 <dialog class="entrance-dialog" id="entrance" data-mode="duo" aria-labelledby="entrance-title" aria-describedby="entrance-description"><p class="sr-only" id="entrance-description">双子星的舞台出场动画，约四秒后自动结束。可以随时跳过或按 Escape。</p><div class="entrance-controls"><span>双子星的登场时刻</span><button class="skip-entrance" id="skip-entrance" type="button" autofocus>跳过动画</button></div><div class="entrance-floor" aria-hidden="true"></div><div class="entrance-beam" aria-hidden="true"></div><div class="entrance-beam right" aria-hidden="true"></div><div class="entrance-rings" aria-hidden="true"></div><p class="entrance-kicker" id="entrance-kicker" aria-hidden="true">两束光，同场登场。</p><div class="entrance-portraits"><figure class="stage-person" id="stage-guo"><img id="stage-guo-image" alt="郭智淳的舞台大片海报"><figcaption>郭智淳</figcaption></figure><figure class="stage-person gu" id="stage-gu"><img id="stage-gu-image" alt="顾景豪的蓝色星光海报"><figcaption>顾景豪</figcaption></figure></div><h2 class="entrance-name" id="entrance-title">郭智淳 × 顾景豪</h2><p class="entrance-subtitle" id="entrance-subtitle">双子星，此刻一起登场。</p><div class="entrance-particles" id="entrance-particles" aria-hidden="true"></div><div class="entrance-curtain left" aria-hidden="true"></div><div class="entrance-curtain right" aria-hidden="true"></div><div class="entrance-seal" aria-hidden="true">这一次<b id="entrance-seal-title">双星同场</b></div><div class="entrance-timer" aria-hidden="true"></div></dialog>
@@ -65,6 +559,7 @@ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const launchers=[...document.querySelectorAll('[data-launch]')];
 const colors=['#f5a5c8','#8dcfff','#ffe49b','#fff9ff','#ad96dd'];
 const assets={
+ sausage:{id:'poster-sausage',title:'郭智淳 · 香肠头特效',kind:'AI 创意特效海报',file:'郭智淳-香肠头特效.png'},
  'guo-original':{id:'guo-photo',title:'郭智淳 · 镜头里的这一刻',kind:'用户提供的原照片',file:'郭智淳-原照片.jpg'},
  stage:{id:'poster-stage',title:'郭智淳 · 舞台大片',kind:'AI 创意海报',file:'郭智淳-舞台大片.png'},
  cyber:{id:'poster-cyber',title:'郭智淳 · 霓虹未来',kind:'AI 创意海报',file:'郭智淳-霓虹未来.png'},

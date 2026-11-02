@@ -1,19 +1,22 @@
 双子星 · 郭智淳 × 顾景豪
 
-打开“ 双子星.html ”即可浏览；全部照片已内嵌，可离线使用。
+双击“双子星.html”即可离线浏览，照片和海报都已内嵌。
 “沪深股票1443.html”保留为相同网页的旧文件名。
 
 使用：
-- 两位主角并列展示，点击各自的出场按钮体验舞台动画。
+- 打开或刷新网页，约六秒的双人片头会自动播放。在后台打开时，切换到这个标签页即可观看。
+- 03、02、01 倒数后，粉蓝彗星冲入画面。郭智淳的香肠头和顾景豪的火柴头海报同时登场，最后出现“双子星”片名。
+- 点击跳过按钮或按 Esc 可直接进入首页，也可以在首页重播。开启系统“减少动态效果”时会直接进入首页。
+- 两位主角并列展示，点击各自的出场按钮体验单人舞台动画。
 - 顾景豪可以切换人像与 AI 火柴头特效镜头，并查看用户提供的原始滤镜截图。
 - 可暂停特效，动画可跳过或按 Escape 关闭。
-- 图片可以放大查看与下载；两位同学各有三张 AI 创意海报。
+- 图片可以放大查看与下载。郭智淳有四张 AI 创意海报，顾景豪有三张。
 - 网页跟随系统“减少动态效果”设置，并支持手机布局。
 
 素材：
-“双子星素材”目录包含两人的原照片、顾景豪的特效截图和六张 AI 海报。
+“双子星素材”目录包含两人的原照片、顾景豪的特效截图和七张 AI 海报。
 原照片和特效截图未做生成式修改；网页仅通过 CSS 控制显示范围。
-六张海报均通过内置 image_gen 根据用户提供照片生成，属于 AI 创意画面。
+七张海报均通过内置 image_gen 根据用户提供照片生成，属于 AI 创意画面。
 顾景豪的火柴头海报同时参考了原人像和用户提供的滤镜截图。
 
 此前三张海报的最终生成提示词：
@@ -44,3 +47,9 @@ Use case: identity-preserve. Reference image 1 is the identity reference for the
 
 火柴头特效
 Use case: style-transfer / identity-preserve. Input image 1 is the real identity reference for 顾景豪. Input image 2 is ONLY the reference for the user's chosen playful augmented-reality matchstick-head filter: a comically long narrow upright smooth head with a small stylized flame above it and a dark hoodie. Create ONE polished vertical 2:3 illustrated poster recreating this absurd filter effect on the same person, retaining recognizable eyes, eyebrows, nose and mouth from image 1 as far as the intentionally stretched cartoon proportions allow. This is a cheerful exaggerated cartoon special effect, not a realistic change of appearance. Keep the intentionally elongated matchstick-shaped bald filter head, make the orange-pink-blue flame luminous and clearly magical, with a small gap above the head; no injury or burned skin. Fully clothed in a simple black hoodie, chest-up composition, natural amused expression rather than fear or pain. Premium stylized 3D/comic illustration, soft dimensional cel shading, expressive glossy lighting, clean contours, midnight-blue and cyan starburst stage with orange sparks and curved light trails. Frame the full elongated head and the entire flame with generous breathing room. Single person only. Remove ALL smartphone interface, app icons, camera buttons, overlays, other students, classroom and text from image 2. No labels, words, brands, watermarks, insults, exaggerated acne, or demeaning stereotypes.
+
+
+郭智淳 · 香肠头特效
+方式：内置 image_gen，以郭智淳原照为人物参考，以顾景豪的 AI 火柴头海报为纵向拉伸的造型参考。
+最终提示词：
+Use case: identity-preserve, playful phone face-warp filter. Create the pink companion to reference 2 as ONE vertical 2:3 cinematic portrait. TWO DIFFERENT PEOPLE IN THE REFERENCES: image 1 is the ONLY identity and clothing reference: 郭智淳, with his own eyes, nose, lips, clear round glasses and pink overshirt over black T-shirt. Image 2 is ONLY the precise anatomy distortion and framing example; do not borrow that person's face or hoodie. Apply the same extreme long, slim, continuous head shape to the actual head of the person in image 1. The skull AND face itself become one enormously long narrow sausage-shaped column, roughly four to five times taller than wide, both sides near parallel with a slight bend and a smooth rounded crown. A tall forehead takes most of its height. Eyes with narrow transparent glasses, nose, lips and chin are stretched directly into the lower part of this very thin column. Human ears are attached directly to its sides. Continuous realistic skin texture and warm pink-terracotta lighting from cheek to crown, without an edge or opening around the face, matching the actual stretched-skin look of picture 2. Bald smooth upper tip like that example. Strongly elongated, deadpan, comical funhouse-mirror proportions. Natural shoulders, normal-length neck. IMPORTANT: NO hat or headpiece, NO sausage prop, NO costume, helmet, hood, frame around the face, wrapping, seam, knot, mustard, food items, flame, or normal head inside a bigger shape. Leave space above the rounded tip, show all of the head. Warm magenta and gold cosmic stage behind him, orbit streak in background like the second poster. One person, no text, no watermark.
