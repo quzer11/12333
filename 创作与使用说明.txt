@@ -1,19 +1,23 @@
-郭智淳 · 主角登场升级版
+双子星 · 郭智淳 × 顾景豪
 
-网页文件：沪深股票1443.html（照片和海报全部内嵌，可直接用浏览器离线打开）。
-图片目录：郭智淳海报，含三张独立 PNG 原图。
+打开“ 双子星.html ”即可浏览；全部照片已内嵌，可离线使用。
+“沪深股票1443.html”保留为相同网页的旧文件名。
 
-操作：
-1. 点击“开启郭智淳的超燃出场”，播放舞台出场动画。
-2. 使用“排面调节器”调整效果；可暂停特效。
-3. 出场时可点击“跳过”或按 Escape。
-4. 海报区可放大查看和下载单张图片。
+使用：
+- 两位主角并列展示，点击各自的出场按钮体验舞台动画。
+- 顾景豪可以切换人像与 AI 火柴头特效镜头，并查看用户提供的原始滤镜截图。
+- 可暂停特效，动画可跳过或按 Escape 关闭。
+- 图片可以放大查看与下载；两位同学各有三张 AI 创意海报。
+- 网页跟随系统“减少动态效果”设置，并支持手机布局。
 
-图片说明：三张海报均使用内置 image_gen，根据用户提供的郭智淳照片生成，为 AI 创意画面。
-保留原照片作为网页主图；未修改原照片。
-生成模式：内置工具；未使用 CLI 或外部 API 密钥。
+素材：
+“双子星素材”目录包含两人的原照片、顾景豪的特效截图和六张 AI 海报。
+原照片和特效截图未做生成式修改；网页仅通过 CSS 控制显示范围。
+六张海报均通过内置 image_gen 根据用户提供照片生成，属于 AI 创意画面。
+顾景豪的火柴头海报同时参考了原人像和用户提供的滤镜截图。
 
-最终生成提示词：
+此前三张海报的最终生成提示词：
+
 
 舞台大片
 Use case: identity-preserve. Input image 1 is the identity and clothing reference: the user identified this person as 郭智淳. Make one finished vertical 2:3 poster of exactly this same person, recognizable facial likeness is the highest priority. Retain the face shape, proportions, visible natural facial features, black layered hair and transparent eyeglass frames. Keep the pink open overshirt/jacket over a plain black top. Do not change the person into a generic model. Exclude the original classroom and all background people. One person only, nonsexual, fully clothed. Keep eyes and entire head unobstructed. No text, letters, numbers, logos, watermarks, signatures, or contact sheets. Produce a single full-frame high-quality portrait image. Scene: an exaggerated cinematic grand entrance on a sleek dark burgundy stage, monumental rose-gold light arches, powerful pink and warm white spotlights forming an elegant fan behind the person, tiny suspended gold confetti and a little theatrical haze. Centered waist-up portrait, camera roughly at eye level, direct gaze and the calm natural expression from the reference, not an extreme grin. Face occupies a substantial part of the frame and remains true to the reference. Editorial photographic realism, beautifully detailed skin and fabric, crisp face, dimensional pink lighting, glossy premium movie key art. Focus on a charismatic dramatic reveal, no crown, no weapons, no microphone, no extra characters.
@@ -23,3 +27,20 @@ Use case: identity-preserve. Input image 1 is the identity and clothing referenc
 
 漫画封面
 Use case: identity-preserve. Input image 1 is the identity and clothing reference: the user identified this person as 郭智淳. Make one finished vertical 2:3 poster of exactly this same person, recognizable facial likeness is the highest priority. Retain the face shape, proportions, visible natural facial features, black layered hair and transparent eyeglass frames. Keep the pink open overshirt/jacket over a plain black top. Do not change the person into a generic model. Exclude the original classroom and all background people. One person only, nonsexual, fully clothed. Keep eyes and entire head unobstructed. No text, letters, numbers, logos, watermarks, signatures, or contact sheets. Produce a single full-frame high-quality portrait image. Style: a highly polished hand-illustrated graphic-novel cover portrait of the same person, preserving recognizable face shape, eye shape, nose, hairstyle and clear glasses rather than a generic anime face. Medium close-up, energetic three-quarter shoulders, comfortable calm expression. Bold precise ink outlines, sophisticated cel shading, subtle halftone print texture, expressive pink jacket folds and plain black top. Background is an explosive graphic composition of pink rays, violet speed lines, butter-yellow four-point stars, paper cutout shapes and a sweeping circular halo. Exaggerated poster energy and strong silhouette, tasteful and celebratory. Pink, violet, warm cream and yellow palette. No speech bubbles, captions, words, crowns, weapons, or additional people.
+
+
+顾景豪 AI 海报生成说明
+
+使用内置 image_gen 生成，未使用 CLI。三张图片为用户照片的创意演绎。
+“火柴头特效”依据用户提供的滤镜截图制作，属于卡通特效。
+
+最终提示词：
+
+蓝色星光
+Use case: identity-preserve. Reference image 1 is the identity reference for the person the user calls 顾景豪. Make a single finished vertical 2:3 poster of this exact person. Preserve recognizable face proportions, eye shape, eyebrows, nose, lips, natural facial texture and the dark parted hairstyle; do not replace the face with a generic model or excessively smooth skin. Keep a gray crewneck sweatshirt, with no readable brand text. One fully clothed person only, waist-up or chest-up, looking toward the camera with a natural relaxed expression. Remove classroom/background people and props. No letters, text, logos, watermarks, signatures or collage panels. High-quality image, entire head visible. Scene: a dramatic yet elegant midnight-blue stage, an enormous celestial blue-white star halo behind the person, silver-blue spotlight beams, fine sparkling stardust and a subtle luminous orbit. Photorealistic editorial portrait with crisp face and realistic sweatshirt texture, cool blue edges and gentle neutral light on the face. Heroic entrance energy, premium cinematic poster, layered depth, cobalt and cyan with small silver highlights. Face is large enough to recognize easily. No fantasy armor, crowns, weapons or microphones.
+
+霓虹出场
+Use case: identity-preserve. Reference image 1 is the identity reference for the person the user calls 顾景豪. Make a single finished vertical 2:3 poster of this exact person. Preserve recognizable face proportions, eye shape, eyebrows, nose, lips, natural facial texture and the dark parted hairstyle; do not replace the face with a generic model or excessively smooth skin. Keep a gray crewneck sweatshirt, with no readable brand text. One fully clothed person only, waist-up or chest-up, looking toward the camera with a natural relaxed expression. Remove classroom/background people and props. No letters, text, logos, watermarks, signatures or collage panels. High-quality image, entire head visible. Scene: a sleek futuristic neon tunnel with electric cyan and violet geometric light frames receding behind the person, reflective nighttime floor and floating light ribbons. Centered three-quarter chest-up portrait, face turned slightly but looking into camera. Cinematic sci-fi photographic realism, clear true-to-reference facial identity and natural skin texture, subtle rim lighting, expressive depth. Keep the gray sweatshirt and dark parted hair. Dominant deep blue, electric cyan, and violet, with a few warm light accents. No cybernetic skin, helmets, masks, vehicles or other people.
+
+火柴头特效
+Use case: style-transfer / identity-preserve. Input image 1 is the real identity reference for 顾景豪. Input image 2 is ONLY the reference for the user's chosen playful augmented-reality matchstick-head filter: a comically long narrow upright smooth head with a small stylized flame above it and a dark hoodie. Create ONE polished vertical 2:3 illustrated poster recreating this absurd filter effect on the same person, retaining recognizable eyes, eyebrows, nose and mouth from image 1 as far as the intentionally stretched cartoon proportions allow. This is a cheerful exaggerated cartoon special effect, not a realistic change of appearance. Keep the intentionally elongated matchstick-shaped bald filter head, make the orange-pink-blue flame luminous and clearly magical, with a small gap above the head; no injury or burned skin. Fully clothed in a simple black hoodie, chest-up composition, natural amused expression rather than fear or pain. Premium stylized 3D/comic illustration, soft dimensional cel shading, expressive glossy lighting, clean contours, midnight-blue and cyan starburst stage with orange sparks and curved light trails. Frame the full elongated head and the entire flame with generous breathing room. Single person only. Remove ALL smartphone interface, app icons, camera buttons, overlays, other students, classroom and text from image 2. No labels, words, brands, watermarks, insults, exaggerated acne, or demeaning stereotypes.
